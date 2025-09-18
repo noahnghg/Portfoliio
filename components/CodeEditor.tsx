@@ -42,8 +42,8 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     '        return f"Let\'s build something amazing, {team}!"',
   ];
 
-  const typingSpeed = 100; // milliseconds per character
-  const lineDelay = 200; // delay between lines
+  const typingSpeed = 5; // milliseconds per character
+  const lineDelay = 100; // delay between lines
 
   useEffect(() => {
     if (currentLine >= codeLines.length) {

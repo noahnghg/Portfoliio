@@ -35,10 +35,10 @@ const Home = () => {
               />
             </div>
             
-            {/* Main heading with gradient */}
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-sky-blue to-pale-blue bg-clip-text text-transparent leading-tight drop-shadow-lg">
+            {/* Main heading with gradient - no text shadow */}
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text ">
               <TypingAnimation
-                text="Hello, I'm Noah"
+                text="Nguyen Hong Anh Khoa"
                 speed={80}
                 delay={1000}
                 showCursor={false}

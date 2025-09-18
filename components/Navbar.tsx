@@ -7,40 +7,31 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true); // Start visible
+  const [isVisible, setIsVisible] = useState(true); // Start visible on page load
   const [mouseY, setMouseY] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState('down');
   const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [justNavigated, setJustNavigated] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const pathname = usePathname();
 
+  // Show navbar on page navigation
   useEffect(() => {
-    // Show navbar when pathname changes (navigation)
     setIsVisible(true);
-    setJustNavigated(true);
+    setIsInitialLoad(true);
     
-    // Hide after 3 seconds unless mouse is at top
-    const navigationTimeout = setTimeout(() => {
-      setJustNavigated(false);
-      if (mouseY > 60 && window.scrollY > 100) {
-        setIsVisible(false);
-      }
-    }, 3000);
+    // After initial load, start auto-hide behavior
+    const initialTimeout = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 2000);
 
-    return () => clearTimeout(navigationTimeout);
-  }, [pathname, mouseY]);
+    return () => clearTimeout(initialTimeout);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Determine scroll direction
-      if (currentScrollY > lastScrollY) {
-        setScrollDirection('down');
-      } else if (currentScrollY < lastScrollY) {
-        setScrollDirection('up');
-      }
+      const scrollingDown = currentScrollY > lastScrollY;
+      const scrollingUp = currentScrollY < lastScrollY;
       
       setLastScrollY(currentScrollY);
       setIsScrolled(currentScrollY > 10);
@@ -51,37 +42,17 @@ export default function Navbar() {
         setHideTimeout(null);
       }
       
-      // Show navbar when scrolling up (but not at the very top)
-      if (scrollDirection === 'up' && currentScrollY > 100) {
+      // Don't auto-hide during initial load period
+      if (isInitialLoad) {
+        return;
+      }
+      
+      // Show navbar when scrolling up
+      if (scrollingUp && currentScrollY > 50) {
         setIsVisible(true);
-      } else if (scrollDirection === 'down' && mouseY > 60 && !justNavigated) {
-        // Add a small delay before hiding when scrolling down (but not if just navigated)
-        const timeout = setTimeout(() => {
-          setIsVisible(false);
-        }, 150);
-        setHideTimeout(timeout);
-      }
-      
-      // Always hide when at the very top unless mouse is there or just navigated
-      if (currentScrollY <= 10 && mouseY > 60 && !justNavigated) {
-        setIsVisible(false);
-      }
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMouseY(e.clientY);
-      
-      // Clear any hide timeout when mouse moves to top
-      if (e.clientY <= 60 && hideTimeout) {
-        clearTimeout(hideTimeout);
-        setHideTimeout(null);
-      }
-      
-      // Show navbar when mouse is in top 60px of screen
-      if (e.clientY <= 60) {
-        setIsVisible(true);
-      } else if (scrollDirection === 'down' && window.scrollY > 100) {
-        // Add delay before hiding when mouse moves away
+      } 
+      // Hide navbar when scrolling down (unless mouse is at top)
+      else if (scrollingDown && mouseY > 80) {
         const timeout = setTimeout(() => {
           setIsVisible(false);
         }, 200);
@@ -89,31 +60,40 @@ export default function Navbar() {
       }
     };
 
-    const handleMouseLeave = () => {
-      // Hide navbar when mouse leaves the window, unless scrolling up
-      if (scrollDirection !== 'up' || window.scrollY <= 100) {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMouseY(e.clientY);
+      
+      // Clear hide timeout when mouse moves to top
+      if (e.clientY <= 80 && hideTimeout) {
+        clearTimeout(hideTimeout);
+        setHideTimeout(null);
+      }
+      
+      // Show navbar when mouse is in top 80px of screen
+      if (e.clientY <= 80) {
+        setIsVisible(true);
+      } 
+      // Hide when mouse moves away from top and we're scrolled down
+      else if (!isInitialLoad && window.scrollY > 50) {
         const timeout = setTimeout(() => {
           setIsVisible(false);
-        }, 100);
+        }, 300);
         setHideTimeout(timeout);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
       
-      // Clean up timeout on unmount
       if (hideTimeout) {
         clearTimeout(hideTimeout);
       }
     };
-  }, [lastScrollY, scrollDirection, mouseY, hideTimeout, justNavigated]);
+  }, [lastScrollY, mouseY, hideTimeout, isInitialLoad]);
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -129,10 +109,7 @@ export default function Navbar() {
         : '-translate-y-full opacity-0'
     } bg-slate-600/95 backdrop-blur-md shadow-2xl rounded-full border border-sky-blue/40`}>
       <div className="flex justify-between items-center px-6 py-3 max-w-2xl mx-auto">
-        {/* Logo */}
-        <Link href="/" className="text-lg font-bold bg-gradient-to-r from-white via-sky-blue to-pale-blue bg-clip-text text-transparent hover:from-sky-blue hover:to-white transition-all duration-200">
-          noahnghg.dev
-        </Link>
+        
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
