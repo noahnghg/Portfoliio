@@ -10,21 +10,21 @@ const Software = () => {
   const projects = [
     {
       id: 1,
-      title: "Life Sync 1.0",
+      title: "LifeSync",
       description: "This is my first, beginner project that I built to solve my own needs. It's a simple CRUD web app that integrates Gemini API for managing every aspects in life from tasks, schedules, goals, finance and more.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      image: "/software/lifesync.png",
       tech: ["React", "TypeScript", "Python", "Flask", "MongoDB"],
-      github: "https://github.com",
+      github: "https://github.com/noahnghg/LifeSync",
       demo: "https://demo.com",
       featured: false
     },
     {
       id: 2,
-      title: "Life Sync 2.0",
-      description: "An updated, full-stack web/mobile application that allows users to really manage their life, and add customizable features to track in their life.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-      tech: ["React", "React Native", "Java", "Spring Boot",  "PostgreSQL", "AWS", "Docker"],
-      github: "https://github.com",
+      title: "FinAInce",
+      description: "A smart finance tracker web app that integrates deep learning models into managing your financial situation.",
+      image: "/software/springboot.png",
+      tech: ["Next.js", "Java", "Spring Boot",  "PostgreSQL", "Plaid API", "AWS", "Docker"],
+      github: "https://github.com/noahnghg/FinAInce",
       demo: "https://demo.com",
       featured: true
     },
@@ -32,9 +32,9 @@ const Software = () => {
       id: 3,
       title: "Badminton Matches Tracker/Predictor",
       description: "A web application that tracks and predicts badminton match outcomes using historical data and machine learning.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+      image: "/software/badminton.png",
       tech: ["Python", "Flask", "React", "Java", "Spring Boot", "PostgreSQL", "AWS"],
-      github: "https://github.com",
+      github: "https://github.com/noahnghg",
       demo: "https://demo.com",
       featured: true,
       inProgress: true
@@ -50,9 +50,9 @@ const Software = () => {
     },
     {
       id: 5,
-      title: "Job ApplicAssistant",
-      description: "A web application that pulls job listings, automatically suggest changes for your current resumes, if so suggest extra projects, activities, etc.",
-      image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=400&h=300&fit=crop",
+      title: "AI Resume Editor",
+      description: "A web application that uses deep learning to fix and improve your resume based on jobs application. It is fully deployed on AWS",
+      image: "/software/aws.png",
       tech: ["Node.js", "Socket.io", "MongoDB", "Express"],
       github: "https://github.com",
       demo: "https://demo.com"
@@ -72,8 +72,8 @@ const Software = () => {
       <section className="pt-20 pb-16 px-8 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
-            <span className="text-sm font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40">
-              💻 My Work
+            <span className="text-sm text-white font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40">
+               noahnghg.work.seng
             </span>
           </div>
           
@@ -183,7 +183,7 @@ const Software = () => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-sm bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none transition-all"
+                        className="btn btn-sm bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-black border-none transition-all"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -206,10 +206,10 @@ const Software = () => {
                   I'm always open to discussing new opportunities and exciting projects.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/about" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 shadow-lg hover:shadow-xl transition-all">
-                    Get in Touch
+                  <Link href="/about" className="btn rounded-full bg-gradient-to-r from-white to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 shadow-lg hover:shadow-xl transition-all">
+                    <span className="text-black">Get in touch</span>
                   </Link>
-                  <a href="mailto:noah@example.com" className="btn rounded-full bg-transparent border-2 border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue btn-lg px-8 transition-all">
+                  <a href="mailto:noahnghg@gmail.com" className="btn rounded-full bg-transparent border-2 border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue btn-lg px-8 transition-all">
                     Send Email
                   </a>
                 </div>

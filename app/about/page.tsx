@@ -10,6 +10,7 @@ const About = () => {
   const [showParagraph2, setShowParagraph2] = useState(false);
   const [showParagraph3, setShowParagraph3] = useState(false);
   const [skillsOpacity, setSkillsOpacity] = useState(0);
+  const [educationOpacity, setEducationOpacity] = useState(0);
   const [experienceOpacity, setExperienceOpacity] = useState(0);
   const [contactOpacity, setContactOpacity] = useState(0);
 
@@ -25,15 +26,21 @@ const About = () => {
       const skillsProgress = Math.max(0, Math.min(1, (scrollY - skillsStart) / (skillsCenter - skillsStart)));
       setSkillsOpacity(skillsProgress);
 
-      // Experience section - starts appearing at 800px scroll
-      const experienceStart = 800;
-      const experienceCenter = 1200;
+      // Education section - starts appearing at 600px scroll
+      const educationStart = 600;
+      const educationCenter = 900;
+      const educationProgress = Math.max(0, Math.min(1, (scrollY - educationStart) / (educationCenter - educationStart)));
+      setEducationOpacity(educationProgress);
+
+      // Experience section - starts appearing at 1000px scroll
+      const experienceStart = 1000;
+      const experienceCenter = 1400;
       const experienceProgress = Math.max(0, Math.min(1, (scrollY - experienceStart) / (experienceCenter - experienceStart)));
       setExperienceOpacity(experienceProgress);
 
-      // Contact section - starts appearing at 1400px scroll
-      const contactStart = 1400;
-      const contactCenter = 1800;
+      // Contact section - starts appearing at 1600px scroll
+      const contactStart = 1600;
+      const contactCenter = 2000;
       const contactProgress = Math.max(0, Math.min(1, (scrollY - contactStart) / (contactCenter - contactStart)));
       setContactOpacity(contactProgress);
     };
@@ -50,6 +57,39 @@ const About = () => {
     "Data Science": ["Numpy", "Pandas", "Scikit-learn", "Power BI", "Tableau"],
     "Tools/Cloud": ["Git", "Docker", "AWS", "Vercel", "Figma", "VS Code", "IntelliJ"]
   };
+
+  const education = [
+    {
+      institution: "University of Calgary",
+      degree: "Bachelor of Science in Computer Science",
+      period: "2023 - 2027 (Expected)",
+      gpa: "3.6/4.0",
+      activities: ["Computer Science Club", "Hackathon Organizer", "Peer Tutor"],
+      coursework: ["Data Structures & Algorithms", "Java OOP Design", "Operating Systems", "Database Systems", "Machine Learning", "Web Based Systems"],
+      achievements: ["Dean's List 2023-2024"],
+      description: "Focused on Software Engineering, Machine Learning, and Data Science",
+      logo: "/about/uofc.png"
+    },
+    {
+      institution: "Garibaldi Secondary School",
+      degree: "High School Diploma / IB Diploma",
+      period: "2021-2023",
+      gpa: "3.8/4.0",
+      activities: ["Math Club", "Mathematics Contests"],
+      achievements: ["Top IB Math 12 Student 100% final grade", "1st Place in BC Secondary School Math Contest 2022 UofV", "Several medals in UWaterloo Math Contests for grade 11, 12"],
+      description: "I went study abroad in Canada since grade 11, finishing with IB Diploma and a Dogwood Diploma.",
+      logo: "/about/gss.png",
+      logo2: "/about/ib.png"
+    },
+    {
+      institution: "Le Hong Phong High School for the Gifted",
+      degree: "Grade 10 Specialized in Mathematics",
+      period: "2020-2021",
+      gpa: "9.4/10",
+      logo: "/about/lhp.png"
+    }
+
+  ];
 
   const experience = [
     {
@@ -101,7 +141,7 @@ const About = () => {
             <div className="order-1 lg:order-2">
               <div className="mb-6">
                 <TypingAnimation
-                  text="👨‍💻 About Me"
+                  text="noahnghg.about"
                   speed={50}
                   className="text-sm font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40"
                   showCursor={false}
@@ -161,7 +201,7 @@ const About = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a href="mailto:noah@example.com" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
-                  Get In Touch
+                  <span className="text-black">Get in touch</span>
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -243,6 +283,129 @@ const About = () => {
                       </span>
                     ))}
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section 
+        id="education-section" 
+        className="py-16 px-8 relative z-10 transition-all duration-1000"
+        style={{ 
+          opacity: educationOpacity,
+          transform: `translateY(${(1 - educationOpacity) * 50}px)`,
+          pointerEvents: educationOpacity > 0.1 ? 'auto' : 'none'
+        }}
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">
+              {educationOpacity > 0.3 && (
+                <TypingAnimation
+                  text="Education"
+                  speed={50}
+                  showCursor={false}
+                />
+              )}
+            </h2>
+            <p className="text-xl text-white/70">
+              My academic journey and achievements
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {education.map((edu, index) => (
+              <div key={index} className="card bg-slate-600/50 border border-sky-blue/30 shadow-lg hover:shadow-xl hover:border-sky-blue/50 transition-all duration-300 backdrop-blur-sm">
+                <div className="card-body">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="card-title text-xl text-white mb-2">{edu.degree}</h3>
+                      <p className="text-soft-blue font-semibold text-lg mb-2">{edu.institution}</p>
+                      {edu.description && <p className="text-white/70 mb-3">{edu.description}</p>}
+                    </div>
+                    <div className="flex flex-col items-start lg:items-end gap-2">
+                      <span className="bg-sky-blue/20 border border-sky-blue/40 text-sky-blue px-3 py-1 rounded-full text-sm font-medium">{edu.period}</span>
+                      {edu.gpa && <span className="bg-green-500/20 border border-green-500/40 text-green-400 px-3 py-1 rounded-full text-sm font-medium">GPA: {edu.gpa}</span>}
+                    </div>
+                  </div>
+                  
+                  {/* Institution Logos */}
+                  {(edu.logo || edu.logo2) && (
+                    <div className="mb-4 flex gap-4 items-center">
+                      {edu.logo && (
+                        <Image
+                          src={edu.logo}
+                          alt={`${edu.institution} logo`}
+                          width={100}
+                          height={50}
+                          className="object-contain bg-white/10 rounded-lg p-2 backdrop-blur-sm"
+                        />
+                      )}
+                      {edu.logo2 && (
+                        <Image
+                          src={edu.logo2}
+                          alt="Additional logo"
+                          width={100}
+                          height={50}
+                          className="object-contain bg-white/10 rounded-lg p-2 backdrop-blur-sm"
+                        />
+                      )}
+                    </div>
+                  )}
+                  
+                  {/* Coursework */}
+                  {edu.coursework && edu.coursework.length > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-sky-blue font-semibold mb-2">Relevant Coursework</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.coursework.map((course, courseIndex) => (
+                          <span
+                            key={courseIndex}
+                            className="badge bg-soft-blue/20 border-soft-blue/40 text-soft-blue hover:bg-soft-blue/30 hover:border-soft-blue transition-colors cursor-default"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Activities */}
+                  {edu.activities && edu.activities.length > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-sky-blue font-semibold mb-2">Activities & Leadership</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.activities.map((activity, actIndex) => (
+                          <span
+                            key={actIndex}
+                            className="badge bg-pale-blue/20 border-pale-blue/40 text-pale-blue hover:bg-pale-blue/30 hover:border-pale-blue transition-colors cursor-default"
+                          >
+                            {activity}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Achievements */}
+                  {edu.achievements && edu.achievements.length > 0 && (
+                    <div>
+                      <h4 className="text-sky-blue font-semibold mb-2">Achievements</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.achievements.map((achievement, achIndex) => (
+                          <span
+                            key={achIndex}
+                            className="badge bg-yellow-500/20 border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/30 hover:border-yellow-500 transition-colors cursor-default"
+                          >
+                            {achievement}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
