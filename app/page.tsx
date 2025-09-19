@@ -59,7 +59,7 @@ const Home = () => {
             {/* CTA Buttons */}
             {showButtons && (
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
-                <Link href="/software" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
+                <Link href="/software" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-black border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
                   View My Work
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
