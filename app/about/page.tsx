@@ -84,7 +84,7 @@ const About = () => {
       institution: "Le Hong Phong High School for the Gifted",
       degree: "Grade 10 Specialized in Mathematics",
       period: "2020-2021",
-      gpa: "9.4/10",
+      gpa: "8.9/10",
       logo: "/about/lhp.png"
     }
 
@@ -95,14 +95,14 @@ const About = () => {
       title: "Deep Learning Software Developer Internship",
       company: "FPT Software",
       period: "July 2025 - September 2025",
-      description: "Led development of scalable web applications using React and Node.js",
+      description: "built deep learning based car inspection system",
       logo: "/about/FPT_Software_logo.webp"
     },
     {
       title: "Odoo Software Developer Internship",
       company: "Leonix Vietnam",
       period: "June 2022 - August 2022",
-      description: "Built machine learning models for customer segmentation and churn prediction",
+      description: "customized core ERP modules such as CRM, Sales, etc., and integrates AI into those",
       logo: "/about/Leonix_Vietnam.png"
     },
   ];
