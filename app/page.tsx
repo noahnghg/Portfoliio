@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import TypingAnimation from '../components/TypingAnimation';
-import TypewriterText from '../components/TypewriterText';
+// import TypewriterText from '../components/TypewriterText'; // Unused import
 import CodeEditor from '../components/CodeEditor';
 
 const Home = () => {
-  const [showSubtitle, setShowSubtitle] = useState(false);
+  // const [showSubtitle, setShowSubtitle] = useState(false); // Unused variable
   const [showButtons, setShowButtons] = useState(false);
   const [showCodeEditor, setShowCodeEditor] = useState(false);
 
@@ -31,7 +31,7 @@ const Home = () => {
                 speed={50}
                 className="text-sm font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40"
                 showCursor={false}
-                onComplete={() => setShowSubtitle(true)}
+                onComplete={() => {}} // setShowSubtitle(true) - removed for deployment
               />
             </div>
             

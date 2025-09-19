@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 interface CodeEditorProps {
   onComplete?: () => void;
@@ -14,11 +14,11 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
 
-  const codeLines = [
+  const codeLines = useMemo(() => [
     'class Noah:',
-    '    """',
+    '    &quot;&quot;&quot;',
     '    A passionate developer who codes dreams into reality',
-    '    """',
+    '    &quot;&quot;&quot;',
     '    def __init__(self):',
     '        self.age = 20',
     '        self.height = "5ft 11"',
@@ -27,20 +27,18 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     '        self.top_skills = ["Python", "Java", "Machine Learning", "Database"]',
     '        self.passion = "Building unique and cool stuff"',
     '    ',
-    '    def code(self, idea):',
-    '        """Transform ideas into working software"""',
+    '    def code(self, idea):',        '        &quot;Transform ideas into working software&quot;',
     '        result = self.creativity + self.skills',
     '        return f"Building {idea} with ❤️"',
     '    ',
-    '    def learn(self, technology):',
-    '        """Never stop learning new technologies"""',
+    '    def learn(self, technology):',        '        &quot;Never stop learning new technologies&quot;',
     '        self.skills.append(technology)',
     '        return "Knowledge expanded! 🚀"',
     '    ',
     '    def collaborate(self, team):',
-    '        """Great things happen when we work together"""',
+    '        &quot;Great things happen when we work together&quot;',
     '        return f"Let\'s build something amazing, {team}!"',
-  ];
+  ], []);
 
   const typingSpeed = 5; // milliseconds per character
   const lineDelay = 100; // delay between lines
@@ -74,7 +72,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
 
       return () => clearTimeout(timeout);
     }
-  }, [currentLine, currentChar, delay, onComplete]);
+  }, [currentLine, currentChar, delay, onComplete, codeLines]);
 
   const renderHighlightedCode = (code: string) => {
     const lines = code.split('\n');
@@ -85,10 +83,10 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       }
       
       // Handle docstring quotes
-      if (line.trim() === '"""') {
+      if (line.trim() === '&quot;&quot;&quot;') {
         return (
           <div key={lineIndex} className="leading-6 h-6">
-            <span className="text-green-300">"""</span>
+            <span className="text-green-300">&quot;&quot;&quot;</span>
           </div>
         );
       }

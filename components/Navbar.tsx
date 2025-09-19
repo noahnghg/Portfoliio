@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false); // Currently unused
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true); // Start visible on page load
   const [mouseY, setMouseY] = useState(0);
@@ -34,7 +34,7 @@ export default function Navbar() {
       const scrollingUp = currentScrollY < lastScrollY;
       
       setLastScrollY(currentScrollY);
-      setIsScrolled(currentScrollY > 10);
+      // setIsScrolled(currentScrollY > 10); // Currently unused
       
       // Clear any existing hide timeout
       if (hideTimeout) {

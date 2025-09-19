@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import TypingAnimation from '../../components/TypingAnimation';
 
 const Software = () => {
@@ -43,7 +44,7 @@ const Software = () => {
       id: 4,
       title: "Portfolio Website",
       description: "It is the website you are currently visiting! A modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring dark mode and smooth animations.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
+      image: "/software/lifesync.png", // Using existing local image as placeholder
       tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
       github: "https://github.com",
       demo: "https://demo.com"
@@ -106,7 +107,7 @@ const Software = () => {
         <section className="px-8 pb-20 animate-fade-in-up relative z-10">
           <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className={`card bg-slate-600/50 border border-sky-blue/30 shadow-lg hover:shadow-xl hover:border-sky-blue/50 transition-all duration-300 transform hover:-translate-y-2 group backdrop-blur-sm ${
@@ -115,9 +116,11 @@ const Software = () => {
               >
                 {/* Project Image */}
                 <figure className="relative overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={400}
+                    height={300}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4 flex flex-col gap-2">
@@ -203,7 +206,7 @@ const Software = () => {
               <div className="card-body text-center">
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">Interested in working together?</h3>
                 <p className="text-white/70 mb-6">
-                  I'm always open to discussing new opportunities and exciting projects.
+                  I&apos;m always open to discussing new opportunities and exciting projects.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/about" className="btn rounded-full bg-gradient-to-r from-white to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 shadow-lg hover:shadow-xl transition-all">

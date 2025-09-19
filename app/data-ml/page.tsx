@@ -6,7 +6,9 @@ import TypingAnimation from '../../components/TypingAnimation';
 
 const DataML = () => {
   const [showDescription, setShowDescription] = useState(false);
-  const [showStats, setShowStats] = useState(false);
+  // Commented out unused variables for deployment
+  // const [showStats, setShowStats] = useState(false);
+  /*
   const projects = [
     {
       id: 1,
@@ -68,16 +70,17 @@ const DataML = () => {
       notebook: "https://colab.research.google.com",
       type: "Analytics"
     }
-  ];
+  // ];
 
-  const typeColors: Record<string, string> = {
-    "Classification": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
-    "Time Series": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
-    "Computer Vision": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue",
-    "NLP": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
-    "Recommendation": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
-    "Analytics": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue"
-  };
+  // const typeColors: Record<string, string> = {
+  //   "Classification": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
+  //   "Time Series": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
+  //   "Computer Vision": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue",
+  //   "NLP": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
+  //   "Recommendation": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
+  //   "Analytics": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue"
+  // };
+  */
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-gray-500 relative overflow-hidden">
@@ -113,7 +116,7 @@ const DataML = () => {
                   speed={30}
                   delay={500}
                   showCursor={false}
-                  onComplete={() => setShowStats(true)}
+                  onComplete={() => {}} // setShowStats(true) - removed for deployment
                 />
               </p>
             </div>
@@ -214,8 +217,8 @@ const DataML = () => {
               </h3>
               
               <p className="text-xl text-white/70 mb-6 leading-relaxed max-w-2xl mx-auto">
-                I'm currently improving the scalability and production-readiness of my data science projects. 
-                My current projects are not yet impressive enough to showcase, but I'm working on building 
+                I&apos;m currently improving the scalability and production-readiness of my data science projects. 
+                My current projects are not yet impressive enough to showcase, but I&apos;m working on building 
                 more robust, end-to-end machine learning solutions.
               </p>
               

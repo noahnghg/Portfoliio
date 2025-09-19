@@ -17,7 +17,6 @@ const About = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
       
       // Calculate opacity based on scroll position for each section
       // Skills section - starts appearing at 300px scroll
@@ -125,9 +124,11 @@ const About = () => {
             <div className="order-2 lg:order-1">
               <div className="relative">
                 <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
-                  <img
+                  <Image
                     src="/about/my_image.png"
                     alt="Noah N."
+                    width={400}
+                    height={400}
                     className="w-full h-full object-cover rounded-3xl"
                   />
                 </div>
@@ -200,7 +201,7 @@ const About = () => {
               )}
 
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <a href="mailto:noah@example.com" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
+                <a href="mailto:noahnghgwork@gmail.com" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
                   <span className="text-black">Get in touch</span>
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -488,8 +489,8 @@ const About = () => {
                 )}
               </h2>
               <p className="text-xl text-white/70 mb-8">
-                I'm always interested in new opportunities and exciting projects. 
-                Let's discuss how we can bring your ideas to life!
+                I&apos;m always interested in new opportunities and exciting projects. 
+                Let&apos;s discuss how we can bring your ideas to life!
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
