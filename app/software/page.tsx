@@ -27,7 +27,8 @@ const Software = () => {
       tech: ["Next.js", "Java", "Spring Boot",  "PostgreSQL", "Plaid API", "AWS", "Docker"],
       github: "https://github.com/noahnghg/FinAInce",
       demo: "https://demo.com",
-      featured: true
+      featured: true,
+      inProgress: true
     },
     {
       id: 3,
@@ -56,7 +57,8 @@ const Software = () => {
       image: "/software/aws.png",
       tech: ["Node.js", "Socket.io", "MongoDB", "Express"],
       github: "https://github.com",
-      demo: "https://demo.com"
+      demo: "https://demo.com",
+      inProgress: true
     }
   ];
 
