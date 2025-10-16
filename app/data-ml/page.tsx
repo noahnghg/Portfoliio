@@ -6,81 +6,40 @@ import TypingAnimation from '../../components/TypingAnimation';
 
 const DataML = () => {
   const [showDescription, setShowDescription] = useState(false);
-  // Commented out unused variables for deployment
-  // const [showStats, setShowStats] = useState(false);
-  /*
+  const [showStats, setShowStats] = useState(false);
+  
   const projects = [
     {
       id: 1,
-      title: "Customer Churn Prediction",
-      description: "Machine learning model to predict customer churn using ensemble methods and feature engineering. Achieved 94% accuracy with Random Forest classifier.",
+      title: "Personal Course T.A",
+      description: "A chatbot web-based application that assists students with course-related queries, act as a personal teaching assistant for every course.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-      tech: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
-      github: "https://github.com",
-      notebook: "https://colab.research.google.com",
-      type: "Classification"
+      tech: ["Python", "LangChain", "ChromaDB", "RAG", "Gemini API"],
+      github: "https://github.com/noahnghg/course-ta",
+      type: "Classification",
+      status: "Completed"
     },
     {
       id: 2,
-      title: "Stock Price Forecasting",
+      title: "Multi-modal Stock Forecasting System",
       description: "Time series analysis and LSTM neural network implementation to predict stock prices with technical indicators and sentiment analysis.",
       image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
       tech: ["TensorFlow", "Keras", "NumPy", "yfinance"],
       github: "https://github.com",
       notebook: "https://colab.research.google.com",
-      type: "Time Series"
+      type: "Time Series",
+      status: "In Progress"
     },
-    {
-      id: 3,
-      title: "Image Classification CNN",
-      description: "Deep learning model for image classification using convolutional neural networks. Trained on custom dataset with data augmentation techniques.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
-      tech: ["PyTorch", "OpenCV", "Albumentations", "Streamlit"],
-      github: "https://github.com",
-      notebook: "https://colab.research.google.com",
-      type: "Computer Vision"
-    },
-    {
-      id: 4,
-      title: "Sentiment Analysis API",
-      description: "Natural language processing model for sentiment analysis with REST API deployment. Processes real-time social media data and reviews.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
-      tech: ["NLTK", "FastAPI", "Docker", "Hugging Face"],
-      github: "https://github.com",
-      notebook: "https://colab.research.google.com",
-      type: "NLP"
-    },
-    {
-      id: 5,
-      title: "Recommendation System",
-      description: "Collaborative filtering and content-based recommendation system for e-commerce platform. Implements matrix factorization and deep learning approaches.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      tech: ["Surprise", "LightGBM", "Apache Spark", "MLflow"],
-      github: "https://github.com",
-      notebook: "https://colab.research.google.com",
-      type: "Recommendation"
-    },
-    {
-      id: 6,
-      title: "Sales Forecasting Dashboard",
-      description: "End-to-end data science project with automated data pipeline, feature engineering, and interactive dashboard for business insights.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-      tech: ["Plotly Dash", "Apache Airflow", "PostgreSQL", "Docker"],
-      github: "https://github.com",
-      notebook: "https://colab.research.google.com",
-      type: "Analytics"
-    }
-  // ];
+  ];
 
-  // const typeColors: Record<string, string> = {
-  //   "Classification": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
-  //   "Time Series": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
-  //   "Computer Vision": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue",
-  //   "NLP": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
-  //   "Recommendation": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
-  //   "Analytics": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue"
-  // };
-  */
+  const typeColors: Record<string, string> = {
+    "Classification": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
+    "Time Series": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
+    "Computer Vision": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue",
+    "NLP": "bg-sky-blue/20 border-sky-blue/40 text-sky-blue",
+    "Recommendation": "bg-soft-blue/20 border-soft-blue/40 text-soft-blue",
+    "Analytics": "bg-pale-blue/20 border-pale-blue/40 text-pale-blue"
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-gray-500 relative overflow-hidden">
@@ -116,7 +75,7 @@ const DataML = () => {
                   speed={30}
                   delay={500}
                   showCursor={false}
-                  onComplete={() => {}} // setShowStats(true) - removed for deployment
+                  onComplete={() => setShowStats(true)}
                 />
               </p>
             </div>
@@ -124,10 +83,33 @@ const DataML = () => {
         </div>
       </section>
 
-      
+      {/* Stats Section */}
+      {showStats && (
+        <section className="px-8 pb-16 animate-fade-in-up relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-1">
+                <div className="stat-value text-sky-blue text-2xl">15+</div>
+                <div className="stat-title text-white/70 text-sm">Models Built</div>
+              </div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-2">
+                <div className="stat-value text-soft-blue text-2xl">94%</div>
+                <div className="stat-title text-white/70 text-sm">Best Accuracy</div>
+              </div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-3">
+                <div className="stat-value text-pale-blue text-2xl">6</div>
+                <div className="stat-title text-white/70 text-sm">Domains</div>
+              </div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-4">
+                <div className="stat-value text-sky-blue text-2xl">2+</div>
+                <div className="stat-title text-white/70 text-sm">Years Experience</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
-      {/* Projects Grid - Currently under development */}
-      {/*
+      {/* Projects Grid */}
       <section className="px-8 pb-20 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -142,10 +124,21 @@ const DataML = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <span className={`${typeColors[project.type]} px-3 py-1 rounded-full text-sm font-medium border`}>
                       {project.type}
                     </span>
+                    {project.status && (
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                        project.status === 'Completed' 
+                          ? 'bg-green-500/20 border-green-500/40 text-green-400' 
+                          : project.status === 'In Progress'
+                          ? 'bg-yellow-500/20 border-yellow-500/40 text-yellow-400'
+                          : 'bg-gray-500/20 border-gray-500/40 text-gray-400'
+                      }`}>
+                        {project.status}
+                      </span>
+                    )}
                   </div>
                 </figure>
 
@@ -198,45 +191,6 @@ const DataML = () => {
                 </div>
               </div>
             ))}
-          </div>
-      */}
-
-      {/* Development Message */}
-      <section className="px-8 pb-20 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="card bg-slate-600/50 border border-sky-blue/30 backdrop-blur-sm">
-            <div className="card-body text-center py-16">
-              <div className="mb-6">
-                <svg className="w-16 h-16 mx-auto text-sky-blue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
-              </div>
-              
-              <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">
-                Projects Under Development
-              </h3>
-              
-              <p className="text-xl text-white/70 mb-6 leading-relaxed max-w-2xl mx-auto">
-                I&apos;m currently improving the scalability and production-readiness of my data science projects. 
-                My current projects are not yet impressive enough to showcase, but I&apos;m working on building 
-                more robust, end-to-end machine learning solutions.
-              </p>
-              
-             
-              
-              <p className="text-white/60 mb-8">
-                Check back soon for updated projects, or feel free to reach out to discuss potential collaborations!
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/about" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-black border-none btn-lg px-8 shadow-lg hover:shadow-xl transition-all">
-                  Learn About My Background
-                </Link>
-                <a href="mailto:noah@example.com" className="btn rounded-full bg-transparent border-2 border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue btn-lg px-8 transition-all">
-                  Get In Touch
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
