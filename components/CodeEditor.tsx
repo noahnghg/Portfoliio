@@ -24,7 +24,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     '        self.height = "5ft 11"',
     '        self.school = "University of Calgary"',
     '        self.location = "Canada"',
-    '        self.top_skills = ["Python", "Java", "Machine Learning", "Database"]',
+    '        self.top_skills = ["Python", "Machine Learning", "Database"]',
     '        self.passion = "Building unique and cool stuff"',
     '    ',
     '    def code(self, idea):',        '        &quot;Transform ideas into working software&quot;',
@@ -79,13 +79,13 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     return lines.map((line, lineIndex) => {
       // Skip empty lines
       if (!line.trim()) {
-        return <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">&nbsp;</div>;
+        return <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">&nbsp;</div>;
       }
       
       // Handle docstring quotes
       if (line.trim() === '&quot;&quot;&quot;') {
         return (
-          <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
+          <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
             <span className="text-green-300">&quot;&quot;&quot;</span>
           </div>
         );
@@ -95,7 +95,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       if (line.includes('passionate developer') || line.includes('Transform ideas') || 
           line.includes('Never stop learning') || line.includes('Great things happen')) {
         return (
-          <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
+          <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
             <span className="text-green-300 italic">{line}</span>
           </div>
         );
@@ -105,7 +105,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       const tokens = parseLineToTokens(line);
       
       return (
-        <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
+        <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
           {tokens.map((token, tokenIndex) => (
             <span key={tokenIndex} className={token.className}>
               {token.text}
@@ -187,7 +187,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+    <div className="w-full max-w-3xl mx-auto bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700 scale-95 sm:scale-100 origin-center">
       {/* Editor Header */}
       <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-between border-b border-gray-700 overflow-x-hidden">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-shrink">
@@ -206,17 +206,17 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       </div>
 
       {/* Editor Content */}
-      <div className="bg-gray-900 p-2 sm:p-4 font-mono text-xs sm:text-sm leading-relaxed min-h-[250px] sm:min-h-[300px] overflow-x-auto max-w-full">
-        <div className="flex min-w-0">
+      <div className="bg-gray-900 p-1.5 sm:p-3 md:p-4 font-mono text-[10px] xs:text-xs sm:text-sm leading-tight sm:leading-relaxed min-h-[200px] sm:min-h-[250px] md:min-h-[300px] overflow-x-auto max-w-full">
+        <div className="flex min-w-0 max-w-full">
           {/* Line Numbers */}
-          <div className="text-gray-500 pr-2 sm:pr-3 select-none font-mono text-xs sm:text-sm text-right min-w-[1.5rem] sm:min-w-[2.5rem]">
+          <div className="text-gray-500 pr-1 sm:pr-2 md:pr-3 select-none font-mono text-[10px] xs:text-xs sm:text-sm text-right min-w-[1.2rem] sm:min-w-[1.5rem] md:min-w-[2.5rem]">
             {displayCode.split('\n').map((_, index) => {
               // Only show line numbers for lines that have content or are not the last empty line
               if (index === displayCode.split('\n').length - 1 && displayCode.endsWith('\n')) {
                 return null;
               }
               return (
-                <div key={index} className="leading-5 h-5 sm:leading-6 sm:h-6">
+                <div key={index} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
                   {index + 1}
                 </div>
               );
@@ -224,8 +224,8 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
           </div>
 
           {/* Code Content */}
-          <div className="flex-1 text-gray-300 font-mono overflow-x-auto min-w-0">
-            <div className="whitespace-pre text-left break-words sm:break-normal">
+          <div className="flex-1 text-gray-300 font-mono min-w-0">
+            <div className="whitespace-pre sm:whitespace-pre text-left overflow-x-auto">
               {renderHighlightedCode(displayCode)}
               {showCursor && (
                 <span className="inline-block w-1.5 h-4 sm:w-2 sm:h-5 bg-white animate-pulse"></span>
