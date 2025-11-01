@@ -117,34 +117,34 @@ const About = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pale-blue/20 rounded-full blur-3xl"></div>
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-8 relative z-10">
+      <section className="pt-16 sm:pt-20 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Profile Image */}
             <div className="order-2 lg:order-1">
-              <div className="relative">
-                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
+              <div className="relative max-w-sm mx-auto lg:max-w-none">
+                <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
                   <Image
                     src="/about/my_image.png"
                     alt="Noah N."
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover rounded-3xl"
+                    className="w-full h-full object-cover rounded-2xl sm:rounded-3xl"
                   />
                 </div>
                 {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-sky-blue/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-pale-blue/20 rounded-full blur-xl"></div>
+                <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-12 h-12 sm:w-20 sm:h-20 bg-sky-blue/20 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-10 h-10 sm:w-16 sm:h-16 bg-pale-blue/20 rounded-full blur-xl"></div>
               </div>
             </div>
 
             {/* Content */}
             <div className="order-1 lg:order-2">
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <TypingAnimation
                   text="noahnghg.about"
                   speed={50}
-                  className="text-sm font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40"
+                  className="text-xs sm:text-sm font-medium text-sky-blue bg-sky-blue/20 px-2 sm:px-3 py-1 rounded-full inline-block border border-sky-blue/40"
                   showCursor={false}
                   onComplete={() => setShowContent(true)}
                 />
@@ -152,7 +152,7 @@ const About = () => {
               
               {showContent && (
                 <div className="animate-fade-in-up">
-                  <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">
                     <TypingAnimation
                       text="I'm Noah"
                       speed={100}
@@ -163,7 +163,7 @@ const About = () => {
                     />
                   </h1>
                   
-                  <div className="space-y-4 text-lg text-white/80 leading-relaxed">
+                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed">
                     <p>
                       <TypingAnimation
                         text="A current university student wants to develop solutions that solve my own pain points and share those solutions."

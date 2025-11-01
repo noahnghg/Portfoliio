@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "tailwindcss-server": {
+      "command": "npx",
+      "args": ["-y", "tailwindcss-mcp-server"]
+    }
+  }
+}

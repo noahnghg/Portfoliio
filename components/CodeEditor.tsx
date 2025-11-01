@@ -79,13 +79,13 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     return lines.map((line, lineIndex) => {
       // Skip empty lines
       if (!line.trim()) {
-        return <div key={lineIndex} className="leading-6 h-6">&nbsp;</div>;
+        return <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">&nbsp;</div>;
       }
       
       // Handle docstring quotes
       if (line.trim() === '&quot;&quot;&quot;') {
         return (
-          <div key={lineIndex} className="leading-6 h-6">
+          <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
             <span className="text-green-300">&quot;&quot;&quot;</span>
           </div>
         );
@@ -95,7 +95,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       if (line.includes('passionate developer') || line.includes('Transform ideas') || 
           line.includes('Never stop learning') || line.includes('Great things happen')) {
         return (
-          <div key={lineIndex} className="leading-6 h-6">
+          <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
             <span className="text-green-300 italic">{line}</span>
           </div>
         );
@@ -105,7 +105,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       const tokens = parseLineToTokens(line);
       
       return (
-        <div key={lineIndex} className="leading-6 h-6">
+        <div key={lineIndex} className="leading-5 h-5 sm:leading-6 sm:h-6">
           {tokens.map((token, tokenIndex) => (
             <span key={tokenIndex} className={token.className}>
               {token.text}
@@ -189,34 +189,34 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   return (
     <div className="max-w-3xl mx-auto bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
       {/* Editor Header */}
-      <div className="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
-        <div className="flex items-center space-x-3">
-          <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full hover:bg-red-400 cursor-pointer"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full hover:bg-yellow-400 cursor-pointer"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full hover:bg-green-400 cursor-pointer"></div>
+      <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-between border-b border-gray-700">
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full hover:bg-red-400 cursor-pointer"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full hover:bg-yellow-400 cursor-pointer"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full hover:bg-green-400 cursor-pointer"></div>
           </div>
-          <span className="text-gray-400 text-sm ml-4 font-medium">noah.py</span>
-          <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+          <span className="text-gray-400 text-xs sm:text-sm ml-2 sm:ml-4 font-medium">noah.py</span>
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-400 rounded-full"></div>
         </div>
-        <div className="flex items-center space-x-3">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span className="text-gray-400 text-xs font-medium">Python 3.11</span>
+        <div className="flex items-center space-x-1 sm:space-x-3">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <span className="text-gray-400 text-[10px] sm:text-xs font-medium hidden xs:inline">Python 3.11</span>
         </div>
       </div>
 
       {/* Editor Content */}
-      <div className="bg-gray-900 p-4 font-mono text-sm leading-relaxed min-h-[300px]">
+      <div className="bg-gray-900 p-2 sm:p-4 font-mono text-xs sm:text-sm leading-relaxed min-h-[250px] sm:min-h-[300px] overflow-x-auto">
         <div className="flex">
           {/* Line Numbers */}
-          <div className="text-gray-500 pr-3 select-none font-mono text-sm text-right min-w-[2.5rem]">
+          <div className="text-gray-500 pr-2 sm:pr-3 select-none font-mono text-xs sm:text-sm text-right min-w-[1.5rem] sm:min-w-[2.5rem]">
             {displayCode.split('\n').map((_, index) => {
               // Only show line numbers for lines that have content or are not the last empty line
               if (index === displayCode.split('\n').length - 1 && displayCode.endsWith('\n')) {
                 return null;
               }
               return (
-                <div key={index} className="leading-6 h-6">
+                <div key={index} className="leading-5 h-5 sm:leading-6 sm:h-6">
                   {index + 1}
                 </div>
               );
@@ -228,7 +228,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
             <div className="whitespace-pre text-left">
               {renderHighlightedCode(displayCode)}
               {showCursor && (
-                <span className="inline-block w-2 h-5 bg-white animate-pulse"></span>
+                <span className="inline-block w-1.5 h-4 sm:w-2 sm:h-5 bg-white animate-pulse"></span>
               )}
             </div>
           </div>
@@ -236,23 +236,23 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       </div>
 
       {/* Bottom Status Bar */}
-      <div className="bg-gray-800 px-4 py-2 text-xs text-gray-400 border-t border-gray-700 flex justify-between">
-        <div className="flex items-center space-x-4">
-          <span className="font-medium">UTF-8</span>
+      <div className="bg-gray-800 px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs text-gray-400 border-t border-gray-700 flex justify-between items-center">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <span className="font-medium hidden sm:inline">UTF-8</span>
           <span className="font-medium">Python 3.11</span>
-          <span className="font-medium">Ln {currentLine + 1}, Col {currentChar + 1}</span>
+          <span className="font-medium hidden xs:inline">Ln {currentLine + 1}, Col {currentChar + 1}</span>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1 sm:space-x-2">
           {!isComplete && (
             <>
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-              <span className="font-medium">Typing...</span>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
+              <span className="font-medium text-[10px] sm:text-xs">Typing...</span>
             </>
           )}
           {isComplete && (
             <>
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-              <span className="font-medium">Ready</span>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full"></div>
+              <span className="font-medium text-[10px] sm:text-xs">Ready</span>
             </>
           )}
         </div>

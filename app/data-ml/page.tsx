@@ -51,15 +51,15 @@ const DataML = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pale-blue/20 rounded-full blur-3xl"></div>
       
       {/* Header Section */}
-      <section className="pt-20 pb-16 px-8 relative z-10">
+      <section className="pt-16 sm:pt-20 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-6">
-            <span className="text-sm text-white font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40">
+          <div className="mb-4 sm:mb-6">
+            <span className="text-xs sm:text-sm text-white font-medium text-sky-blue bg-sky-blue/20 px-2 sm:px-3 py-1 rounded-full inline-block border border-sky-blue/40">
               noahnghg.work.dsml
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text text-transparent px-2">
             <TypingAnimation
               text="Data/ML Projects"
               speed={100}
@@ -68,8 +68,8 @@ const DataML = () => {
             />
           </h1>
           {showDescription && (
-            <div className="animate-fade-in-up">
-              <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <div className="animate-fade-in-up px-2">
+              <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
                 <TypingAnimation
                   text="Machine learning models, data analysis projects, and AI applications solving real-world problems"
                   speed={30}
@@ -85,24 +85,24 @@ const DataML = () => {
 
       {/* Stats Section */}
       {showStats && (
-        <section className="px-8 pb-16 animate-fade-in-up relative z-10">
+        <section className="px-4 sm:px-6 lg:px-8 pb-8 sm:pb-16 animate-fade-in-up relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-1">
-                <div className="stat-value text-sky-blue text-2xl">15+</div>
-                <div className="stat-title text-white/70 text-sm">Models Built</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-1 p-3 sm:p-4">
+                <div className="stat-value text-sky-blue text-xl sm:text-2xl">15+</div>
+                <div className="stat-title text-white/70 text-xs sm:text-sm">Models Built</div>
               </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-2">
-                <div className="stat-value text-soft-blue text-2xl">94%</div>
-                <div className="stat-title text-white/70 text-sm">Best Accuracy</div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-2 p-3 sm:p-4">
+                <div className="stat-value text-soft-blue text-xl sm:text-2xl">94%</div>
+                <div className="stat-title text-white/70 text-xs sm:text-sm">Best Accuracy</div>
               </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-3">
-                <div className="stat-value text-pale-blue text-2xl">6</div>
-                <div className="stat-title text-white/70 text-sm">Domains</div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-3 p-3 sm:p-4">
+                <div className="stat-value text-pale-blue text-xl sm:text-2xl">6</div>
+                <div className="stat-title text-white/70 text-xs sm:text-sm">Domains</div>
               </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-2xl border border-sky-blue/30 text-center animate-stagger-4">
-                <div className="stat-value text-sky-blue text-2xl">2+</div>
-                <div className="stat-title text-white/70 text-sm">Years Experience</div>
+              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-4 p-3 sm:p-4">
+                <div className="stat-value text-sky-blue text-xl sm:text-2xl">2+</div>
+                <div className="stat-title text-white/70 text-xs sm:text-sm">Years Experience</div>
               </div>
             </div>
           </div>
@@ -110,9 +110,9 @@ const DataML = () => {
       )}
 
       {/* Projects Grid */}
-      <section className="px-8 pb-20 relative z-10">
+      <section className="px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <div
                 key={project.id}
@@ -122,14 +122,14 @@ const DataML = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <span className={`${typeColors[project.type]} px-3 py-1 rounded-full text-sm font-medium border`}>
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 flex flex-wrap gap-1 sm:gap-2 max-w-[calc(100%-1rem)]">
+                    <span className={`${typeColors[project.type]} px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium border`}>
                       {project.type}
                     </span>
                     {project.status && (
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium border ${
                         project.status === 'Completed' 
                           ? 'bg-green-500/20 border-green-500/40 text-green-400' 
                           : project.status === 'In Progress'
@@ -142,50 +142,52 @@ const DataML = () => {
                   </div>
                 </figure>
 
-                <div className="card-body">
-                  <h2 className="card-title text-xl font-bold mb-2 text-white">
+                <div className="card-body p-4 sm:p-6">
+                  <h2 className="card-title text-lg sm:text-xl font-bold mb-2 text-white">
                     {project.title}
                   </h2>
                   
-                  <p className="text-white/70 mb-4 leading-relaxed text-sm">
+                  <p className="text-white/70 mb-3 sm:mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="badge bg-sky-blue/20 border-sky-blue/40 text-sky-blue hover:bg-sky-blue/30 hover:border-sky-blue transition-colors cursor-default text-xs"
+                        className="badge badge-sm sm:badge-md bg-sky-blue/20 border-sky-blue/40 text-sky-blue hover:bg-sky-blue/30 hover:border-sky-blue transition-colors cursor-default text-xs"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="card-actions justify-between items-center">
-                    <div className="flex gap-2">
+                  <div className="card-actions flex-col sm:flex-row justify-between items-stretch sm:items-center gap-2">
+                    <div className="flex gap-2 w-full sm:w-auto">
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-sm bg-transparent border border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue transition-all"
+                        className="btn btn-xs sm:btn-sm bg-transparent border border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue transition-all flex-1 sm:flex-none"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        Code
+                        <span className="text-xs sm:text-sm">Code</span>
                       </a>
-                      <a
-                        href={project.notebook}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-sm bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none transition-all"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Notebook
-                      </a>
+                      {project.notebook && (
+                        <a
+                          href={project.notebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-xs sm:btn-sm bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-white border-none transition-all flex-1 sm:flex-none"
+                        >
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span className="text-xs sm:text-sm">Notebook</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

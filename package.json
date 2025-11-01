@@ -12,7 +12,8 @@
     "daisyui": "^5.1.12",
     "next": "15.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "tailwindcss-mcp-server": "^0.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

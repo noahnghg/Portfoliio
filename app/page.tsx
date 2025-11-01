@@ -25,18 +25,18 @@ const Home = () => {
         <div className="hero-content text-center relative z-10">
           <div className="max-w-4xl">
             {/* Animated greeting */}
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6 px-4 sm:px-0">
               <TypingAnimation
                 text="noahnghg.dev.portfolio"
                 speed={50}
-                className="text-sm font-medium text-sky-blue bg-sky-blue/20 px-3 py-1 rounded-full inline-block border border-sky-blue/40"
+                className="text-xs sm:text-sm font-medium text-sky-blue bg-sky-blue/20 px-2 sm:px-3 py-1 rounded-full inline-block border border-sky-blue/40"
                 showCursor={false}
                 onComplete={() => {}} // setShowSubtitle(true) - removed for deployment
               />
             </div>
             
             {/* Main heading with gradient - no text shadow */}
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text ">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-soft-blue bg-clip-text px-4 sm:px-0">
               <TypingAnimation
                 text="Nguyen Hong Anh Khoa"
                 speed={80}
@@ -48,7 +48,7 @@ const Home = () => {
             
             {/* Code Editor */}
             {showCodeEditor && (
-              <div className="animate-fade-in-up mb-8">
+              <div className="animate-fade-in-up mb-6 sm:mb-8 px-2 sm:px-0">
                 <CodeEditor 
                   delay={500}
                   onComplete={() => setShowButtons(true)}
@@ -58,14 +58,14 @@ const Home = () => {
             
             {/* CTA Buttons */}
             {showButtons && (
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
-                <Link href="/software" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-black border-none btn-lg px-8 group shadow-lg hover:shadow-xl transition-all">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up px-4 sm:px-0">
+                <Link href="/software" className="btn rounded-full bg-gradient-to-r from-sky-blue to-soft-blue hover:from-soft-blue hover:to-sky-blue text-black border-none btn-sm sm:btn-md lg:btn-lg px-6 sm:px-8 group shadow-lg hover:shadow-xl transition-all w-full sm:w-auto text-sm sm:text-base">
                   View My Work
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
-                <Link href="/about" className="btn rounded-full bg-transparent border-2 border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue btn-lg px-8 transition-all">
+                <Link href="/about" className="btn rounded-full bg-transparent border-2 border-sky-blue/70 text-sky-blue hover:bg-sky-blue/20 hover:border-sky-blue btn-sm sm:btn-md lg:btn-lg px-6 sm:px-8 transition-all w-full sm:w-auto text-sm sm:text-base">
                   About Me
                 </Link>
               </div>
