@@ -187,27 +187,27 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+    <div className="w-full max-w-3xl mx-auto bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
       {/* Editor Header */}
-      <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-between border-b border-gray-700">
-        <div className="flex items-center space-x-2 sm:space-x-3">
-          <div className="flex space-x-1 sm:space-x-2">
+      <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-between border-b border-gray-700 overflow-x-hidden">
+        <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-shrink">
+          <div className="flex space-x-1 sm:space-x-2 flex-shrink-0">
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full hover:bg-red-400 cursor-pointer"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full hover:bg-yellow-400 cursor-pointer"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full hover:bg-green-400 cursor-pointer"></div>
           </div>
-          <span className="text-gray-400 text-xs sm:text-sm ml-2 sm:ml-4 font-medium">noah.py</span>
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-400 rounded-full"></div>
+          <span className="text-gray-400 text-xs sm:text-sm ml-2 sm:ml-4 font-medium truncate">noah.py</span>
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-400 rounded-full flex-shrink-0"></div>
         </div>
-        <div className="flex items-center space-x-1 sm:space-x-3">
+        <div className="flex items-center space-x-1 sm:space-x-3 flex-shrink-0">
           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span className="text-gray-400 text-[10px] sm:text-xs font-medium hidden xs:inline">Python 3.11</span>
+          <span className="text-gray-400 text-[10px] sm:text-xs font-medium hidden sm:inline whitespace-nowrap">Python 3.11</span>
         </div>
       </div>
 
       {/* Editor Content */}
-      <div className="bg-gray-900 p-2 sm:p-4 font-mono text-xs sm:text-sm leading-relaxed min-h-[250px] sm:min-h-[300px] overflow-x-auto">
-        <div className="flex">
+      <div className="bg-gray-900 p-2 sm:p-4 font-mono text-xs sm:text-sm leading-relaxed min-h-[250px] sm:min-h-[300px] overflow-x-auto max-w-full">
+        <div className="flex min-w-0">
           {/* Line Numbers */}
           <div className="text-gray-500 pr-2 sm:pr-3 select-none font-mono text-xs sm:text-sm text-right min-w-[1.5rem] sm:min-w-[2.5rem]">
             {displayCode.split('\n').map((_, index) => {
@@ -224,8 +224,8 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
           </div>
 
           {/* Code Content */}
-          <div className="flex-1 text-gray-300 font-mono overflow-x-auto">
-            <div className="whitespace-pre text-left">
+          <div className="flex-1 text-gray-300 font-mono overflow-x-auto min-w-0">
+            <div className="whitespace-pre text-left break-words sm:break-normal">
               {renderHighlightedCode(displayCode)}
               {showCursor && (
                 <span className="inline-block w-1.5 h-4 sm:w-2 sm:h-5 bg-white animate-pulse"></span>

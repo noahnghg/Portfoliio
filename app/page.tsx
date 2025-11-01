@@ -22,8 +22,8 @@ const Home = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-blue/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pale-blue/20 rounded-full blur-3xl"></div>
         
-        <div className="hero-content text-center relative z-10">
-          <div className="max-w-4xl">
+        <div className="hero-content text-center relative z-10 w-full px-4 sm:px-6">
+          <div className="max-w-4xl w-full">
             {/* Animated greeting */}
             <div className="mb-4 sm:mb-6 px-4 sm:px-0">
               <TypingAnimation
@@ -48,7 +48,7 @@ const Home = () => {
             
             {/* Code Editor */}
             {showCodeEditor && (
-              <div className="animate-fade-in-up mb-6 sm:mb-8 px-2 sm:px-0">
+              <div className="animate-fade-in-up mb-6 sm:mb-8 px-2 sm:px-4 md:px-0 w-full max-w-full overflow-hidden">
                 <CodeEditor 
                   delay={500}
                   onComplete={() => setShowButtons(true)}

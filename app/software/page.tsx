@@ -23,7 +23,7 @@ const Software = () => {
       id: 2,
       title: "Fitelier",
       description: "A smart fitness tracker with AI assistance.",
-      image: "/software/springboot.png",
+      image: "/software/fitelier.png",
       tech: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Gemini API", "Vercel", "Tailwind CSS"],
       github: "https://github.com/noahnghg/Fitelier",
       demo: "https://fitelier.vercel.app",

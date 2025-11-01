@@ -103,74 +103,94 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-out ${
-      isVisible 
-        ? 'translate-y-0 opacity-100' 
-        : '-translate-y-full opacity-0'
-    } bg-slate-600/95 backdrop-blur-md shadow-2xl rounded-full border border-sky-blue/40`}>
-      <div className="flex justify-between items-center px-6 py-3 max-w-2xl mx-auto">
-        
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`transition-all duration-200 px-3 py-1.5 rounded-full text-sm font-medium ${
-                pathname === item.href 
-                  ? 'bg-sky-blue text-white shadow-md' 
-                  : 'text-sky-blue/90 hover:bg-sky-blue/25 hover:text-sky-blue'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 rounded-full bg-sky-blue/25 hover:bg-sky-blue/35 transition-colors text-sky-blue"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && isVisible && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-600/95 backdrop-blur-md border border-sky-blue/40 rounded-2xl shadow-2xl transition-all duration-300">
-          <div className="flex flex-col space-y-2 p-4">
+    <>
+      {/* Desktop Navigation - Floating Top Bar */}
+      <nav className={`hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-out ${
+        isVisible 
+          ? 'translate-y-0 opacity-100' 
+          : '-translate-y-full opacity-0'
+      } bg-slate-600/95 backdrop-blur-md shadow-2xl rounded-full border border-sky-blue/40`}>
+        <div className="flex justify-between items-center px-6 py-3 max-w-2xl mx-auto">
+          <div className="flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-all duration-200 px-4 py-2 rounded-xl text-sm font-medium ${
+                className={`transition-all duration-200 px-3 py-1.5 rounded-full text-sm font-medium ${
                   pathname === item.href 
                     ? 'bg-sky-blue text-white shadow-md' 
-                    : 'text-sky-blue/80 hover:bg-sky-blue/20 hover:text-sky-blue'
+                    : 'text-sky-blue/90 hover:bg-sky-blue/25 hover:text-sky-blue'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile - Hamburger Button (Fixed Top Left) */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 p-3 rounded-full bg-slate-600/95 backdrop-blur-md border border-sky-blue/40 hover:bg-sky-blue/25 transition-all shadow-lg text-sky-blue"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {isMobileMenuOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+
+      {/* Mobile Menu - Side Drawer */}
+      <div className={`md:hidden fixed inset-y-0 left-0 z-40 w-64 bg-slate-600/98 backdrop-blur-md border-r border-sky-blue/40 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        <div className="flex flex-col h-full pt-20 px-6 pb-6">
+          {/* Logo/Brand */}
+          <div className="mb-8">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-white to-sky-blue bg-clip-text text-transparent">
+              Noah&apos;s Portfolio
+            </h2>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex flex-col space-y-3 flex-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`transition-all duration-200 px-4 py-3 rounded-xl text-base font-medium ${
+                  pathname === item.href 
+                    ? 'bg-sky-blue text-white shadow-md' 
+                    : 'text-sky-blue/90 hover:bg-sky-blue/20 hover:text-sky-blue'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link 
-              href="/about" 
-              className="px-4 py-2 bg-sky-blue text-white rounded-xl text-sm font-medium hover:bg-soft-blue transition-colors mt-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Get in Touch
-            </Link>
-          </div>
+          </nav>
+
+          {/* Contact Button */}
+          <Link 
+            href="/about" 
+            className="mt-auto px-4 py-3 bg-gradient-to-r from-sky-blue to-soft-blue text-white rounded-xl text-base font-medium hover:from-soft-blue hover:to-sky-blue transition-all shadow-lg text-center"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Get in Touch
+          </Link>
         </div>
+      </div>
+
+      {/* Overlay for mobile menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/50 z-30 backdrop-blur-sm"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
       )}
-    </nav>
+    </>
   );
 }
