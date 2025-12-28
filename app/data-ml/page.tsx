@@ -21,14 +21,14 @@ const DataML = () => {
     },
     {
       id: 2,
-      title: "Multi-modal Stock Forecasting System",
+      title: "Stock Price and Sentiment Prediction Pipeline",
       description: "Time series analysis and LSTM neural network implementation to predict stock prices with technical indicators and sentiment analysis.",
       image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
-      tech: ["TensorFlow", "Keras", "NumPy", "yfinance"],
+      tech: ["PyTorch", "PostgreSQL", "Airflow", "AlphaVantage", "PyDantic", "FastAPI", "Streamlit"],
       github: "https://github.com",
       notebook: "https://colab.research.google.com",
       type: "Time Series",
-      status: "In Progress"
+      status: "Completed"
     },
   ];
 
@@ -83,31 +83,7 @@ const DataML = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      {showStats && (
-        <section className="px-4 sm:px-6 lg:px-8 pb-8 sm:pb-16 animate-fade-in-up relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-1 p-3 sm:p-4">
-                <div className="stat-value text-sky-blue text-xl sm:text-2xl">15+</div>
-                <div className="stat-title text-white/70 text-xs sm:text-sm">Models Built</div>
-              </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-2 p-3 sm:p-4">
-                <div className="stat-value text-soft-blue text-xl sm:text-2xl">94%</div>
-                <div className="stat-title text-white/70 text-xs sm:text-sm">Best Accuracy</div>
-              </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-3 p-3 sm:p-4">
-                <div className="stat-value text-pale-blue text-xl sm:text-2xl">6</div>
-                <div className="stat-title text-white/70 text-xs sm:text-sm">Domains</div>
-              </div>
-              <div className="stat bg-slate-600/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-sky-blue/30 text-center animate-stagger-4 p-3 sm:p-4">
-                <div className="stat-value text-sky-blue text-xl sm:text-2xl">2+</div>
-                <div className="stat-title text-white/70 text-xs sm:text-sm">Years Experience</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+  
 
       {/* Projects Grid */}
       <section className="px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20 relative z-10">
