@@ -17,26 +17,30 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   const codeLines = useMemo(() => [
     'class Noah:',
     '    &quot;&quot;&quot;',
-    '    A passionate developer who codes dreams into reality',
+    '    a developer who solves problems with code',
     '    &quot;&quot;&quot;',
     '    def __init__(self):',
     '        self.age = 20',
     '        self.height = "5ft 11"',
     '        self.school = "University of Calgary"',
     '        self.location = "Canada"',
-    '        self.top_skills = ["Python", "Machine Learning", "Database"]',
-    '        self.passion = "Building unique and cool stuff"',
+    '        self.skills = ["Python", "Backend", "Machine Learning", "Database"]',
+    '        self.passion = "Building solutions with technology"',
     '    ',
-    '    def code(self, idea):',        '        &quot;Transform ideas into working software&quot;',
-    '        result = self.creativity + self.skills',
+    '    def code(self, idea):',
+    '        &quot;&quot;&quot;',
+    '        identify problems, use code to solve them &quot;',
+    '        &quot;&quot;&quot;',
     '        return f"Building {idea} with ❤️"',
     '    ',
-    '    def learn(self, technology):',        '        &quot;Never stop learning new technologies&quot;',
+    '    def learn(self, technology):',
     '        self.skills.append(technology)',
     '        return "Knowledge expanded! 🚀"',
     '    ',
     '    def collaborate(self, team):',
-    '        &quot;Great things happen when we work together&quot;',
+    '        &quot;&quot;&quot;',
+    '        Great things happen when we work together',
+    '        &quot;&quot;&quot;',
     '        return f"Let\'s build something amazing, {team}!"',
   ], []);
 
@@ -54,7 +58,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
     }
 
     const currentLineText = codeLines[currentLine];
-    
+
     if (currentChar < currentLineText.length) {
       const timeout = setTimeout(() => {
         setDisplayCode(prev => prev + currentLineText[currentChar]);
@@ -81,7 +85,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       if (!line.trim()) {
         return <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">&nbsp;</div>;
       }
-      
+
       // Handle docstring quotes
       if (line.trim() === '&quot;&quot;&quot;') {
         return (
@@ -90,20 +94,20 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
           </div>
         );
       }
-      
+
       // Handle docstring content
-      if (line.includes('passionate developer') || line.includes('Transform ideas') || 
-          line.includes('Never stop learning') || line.includes('Great things happen')) {
+      if (line.includes('passionate developer') || line.includes('Transform ideas') ||
+        line.includes('Never stop learning') || line.includes('Great things happen')) {
         return (
           <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
             <span className="text-green-300 italic">{line}</span>
           </div>
         );
       }
-      
+
       // Parse and highlight the line using React components
       const tokens = parseLineToTokens(line);
-      
+
       return (
         <div key={lineIndex} className="leading-4 h-4 sm:leading-5 sm:h-5 md:leading-6 md:h-6">
           {tokens.map((token, tokenIndex) => (
@@ -119,7 +123,7 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
   const parseLineToTokens = (line: string) => {
     const tokens: { text: string; className: string }[] = [];
     let currentIndex = 0;
-    
+
     // Define patterns for syntax highlighting
     const patterns = [
       { regex: /\b(class|def|return|import|from|if|else|for|while|try|except|with|as)\b/, className: 'text-blue-400 font-semibold' },
@@ -130,16 +134,16 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
       { regex: /\b(append|len|print|range)\b/, className: 'text-cyan-400' },
       { regex: /[=+\[\],:()\.]/, className: 'text-gray-300' },
     ];
-    
+
     while (currentIndex < line.length) {
       let matched = false;
-      
+
       // Try to match each pattern
       for (const pattern of patterns) {
         const regex = new RegExp(pattern.regex.source, 'g');
         regex.lastIndex = currentIndex;
         const match = regex.exec(line);
-        
+
         if (match && match.index === currentIndex) {
           // Add any preceding text as default
           if (currentIndex < match.index) {
@@ -148,19 +152,19 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
               className: 'text-gray-300'
             });
           }
-          
+
           // Add the matched token
           tokens.push({
             text: match[0],
             className: pattern.className
           });
-          
+
           currentIndex = match.index + match[0].length;
           matched = true;
           break;
         }
       }
-      
+
       if (!matched) {
         // Find the next pattern match or end of line
         let nextMatchIndex = line.length;
@@ -172,17 +176,17 @@ export default function CodeEditor({ onComplete, delay = 0 }: CodeEditorProps) {
             nextMatchIndex = match.index;
           }
         }
-        
+
         // Add the text until the next match as default
         tokens.push({
           text: line.slice(currentIndex, nextMatchIndex),
           className: 'text-gray-300'
         });
-        
+
         currentIndex = nextMatchIndex;
       }
     }
-    
+
     return tokens;
   };
 

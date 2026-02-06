@@ -28,6 +28,31 @@ const config: Config = {
         'light-slate': '#64748b',     // Lighter slate-500
         'very-light-slate': '#94a3b8', // slate-400
       },
+      animation: {
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+        'shine': 'shine 8s ease-in-out infinite',
+        'marquee': 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
+        },
+        'shine': {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
+        },
+        'marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [
@@ -64,6 +89,24 @@ const config: Config = {
         "warning-content": "#ffffff", // White text
         "error": "#f56565",          // Red
         "error-content": "#ffffff",  // White text
+      },
+      "coding-dark": {
+        "primary": "#38bdf8",        // Cyan/React Blue
+        "primary-content": "#000000",
+        "secondary": "#818cf8",      // Indigo
+        "secondary-content": "#ffffff",
+        "accent": "#22d3ee",         // Cyan Accent
+        "accent-content": "#000000",
+        "neutral": "#1f2937",        // Dark Grey
+        "neutral-content": "#e5e7eb", // Light Grey text
+        "base-100": "#0f172a",       // Very Dark Blue/Slate
+        "base-200": "#1e293b",       // Dark Slate
+        "base-300": "#334155",       // Slate
+        "base-content": "#f8fafc",   // Almost White text
+        "info": "#3abff8",
+        "success": "#36d399",
+        "warning": "#fbbd23",
+        "error": "#f87272",
       },
     },
   ],
