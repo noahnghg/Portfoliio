@@ -388,7 +388,7 @@ const Home = () => {
               <div className="relative max-w-sm mx-auto lg:max-w-none w-72 h-72 lg:w-96 lg:h-96">
                 <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 p-1 transform rotate-3 hover:rotate-0 transition-all duration-500">
                   <Image
-                    src="/about/my_image.png"
+                    src="/lofi_pic.png"
                     alt="Noah N."
                     width={400}
                     height={400}
