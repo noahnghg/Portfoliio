@@ -187,6 +187,17 @@ const Home = () => {
   // --- Data from Software Page ---
   const softwareProjects: Project[] = [
     {
+      id: 201, // New ID for Deep Notes
+      title: "Deep Notes",
+      description: "An Obsidian plugin that helps deepening the understanding of the notes. Built with RAG, vector embeddings, and semantic search.",
+      image: "/projects/deep-notes.png",
+      tech: ["TypeScript", "Obsidian API", "RAG", "Vector Embeddings", "Semantic Search"],
+      github: "https://github.com/noahnghg/DeepNotes",
+      type: "Obsidian Plugin",
+      status: "February 2026",
+      featured: true
+    },
+    {
       id: 105,
       title: "BMATS",
       description: "A web app that integrates an NLP pipeline to anonymyze applicant's information, addressing the biased hiring problem. Hackathon project for Hack the Bias 2026.",
