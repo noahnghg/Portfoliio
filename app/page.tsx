@@ -134,7 +134,7 @@ const Home = () => {
 
   const experience = [
     {
-      title: "Deep Learning Software Developer Internship",
+      title: "Software Engineer Intern",
       company: "FPT Software",
       period: "July 2025 - September 2025",
       description: "built deep learning based car inspection system",
@@ -239,26 +239,6 @@ const Home = () => {
       type: "SENG 513",
       status: "Ongoing",
       featured: true
-    },
-    {
-      id: 101, // Adjusted ID to avoid conflict
-      title: "LifeSync",
-      description: "My first beginner project, built to solve my own needs. A simple CRUD web app integrating Gemini API to manage life aspects: tasks, schedules, goals, and finance.",
-      image: "/projects/lifesync.png",
-      tech: ["React", "TypeScript", "Python", "Flask", "MongoDB"],
-      github: "https://github.com/noahnghg/LifeSync",
-      featured: false
-    },
-    {
-      id: 102,
-      title: "Fitelier",
-      description: "A smart fitness tracker with AI assistance.",
-      image: "/projects/fitelier.png",
-      tech: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Gemini API", "Vercel", "Tailwind CSS"],
-      github: "https://github.com/noahnghg/Fitelier",
-      demo: "https://fitelier.vercel.app",
-      featured: true,
-      inProgress: false
     }
   ];
 
