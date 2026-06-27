@@ -285,7 +285,7 @@ export default function Home() {
       period: "May 2026 - Present",
       location: "Toronto, Canada",
       description: "Designing and developing production LLM solutions and cognitive search applications for lottery and gaming channels. Engineering scalable AI systems using Azure AI Search, Azure Databricks, Azure OpenAI, FastAPI, React/Next.js, TypeScript, and SQL databases.",
-      logo: "/about/olg.png",
+      logo: "/about/olg.jpg",
       tech: ["FastAPI", "React", "Next.js", "Azure", "Azure AI Search", "Azure Databricks", "SQL"]
     },
     {
@@ -513,861 +513,861 @@ export default function Home() {
 
   return (
     <>
-    <Box
-      className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${showIntro ? 'intro-active' : ''} ${revealActive ? 'reveal-active' : ''}`}
-      sx={{
-        width: '100vw',
-        height: '100dvh',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-
-      {/* Hidden audio element for lofi Beats */}
-      <audio
-        ref={audioRef}
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
-        loop
-        preload="auto"
-      />
-
-      {/* 1. TOP MENU BAR */}
       <Box
-        className="os-menu-bar"
+        className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${showIntro ? 'intro-active' : ''} ${revealActive ? 'reveal-active' : ''}`}
         sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 28,
-          backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.75)' : 'rgba(253, 246, 227, 0.75)',
-          borderBottom: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.2)' : '1px solid rgba(7, 54, 66, 0.1)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          px: 2,
-          zIndex: 10000,
-          color: mode === 'dark' ? '#93a1a1' : '#586e75',
-          fontFamily: 'var(--font-outfit)',
-          fontSize: '0.85rem',
-          fontWeight: 600,
+          width: '100vw',
+          height: '100dvh',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 3.5 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'default' }}>
-            <AppleIcon sx={{ fontSize: 16, mt: -0.2 }} />
-            <Typography variant="body2" sx={{ fontWeight: 800, fontSize: '0.85rem', fontFamily: 'var(--font-outfit)' }}>
-              Noah OS
+
+        {/* Hidden audio element for lofi Beats */}
+        <audio
+          ref={audioRef}
+          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+          loop
+          preload="auto"
+        />
+
+        {/* 1. TOP MENU BAR */}
+        <Box
+          className="os-menu-bar"
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 28,
+            backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.75)' : 'rgba(253, 246, 227, 0.75)',
+            borderBottom: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.2)' : '1px solid rgba(7, 54, 66, 0.1)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            px: 2,
+            zIndex: 10000,
+            color: mode === 'dark' ? '#93a1a1' : '#586e75',
+            fontFamily: 'var(--font-outfit)',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3.5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'default' }}>
+              <AppleIcon sx={{ fontSize: 16, mt: -0.2 }} />
+              <Typography variant="body2" sx={{ fontWeight: 800, fontSize: '0.85rem', fontFamily: 'var(--font-outfit)' }}>
+                Noah OS
+              </Typography>
+            </Box>
+
+            {/* Quick Menu Links */}
+            <Typography
+              onClick={() => openWindow('about')}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+            >
+              About
+            </Typography>
+            <Typography
+              onClick={() => openWindow('experience')}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+            >
+              Experience
+            </Typography>
+            <Typography
+              onClick={() => openWindow('education')}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+            >
+              Education
+            </Typography>
+            <Typography
+              onClick={() => openWindow('projects')}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+            >
+              Projects
             </Typography>
           </Box>
 
-          {/* Quick Menu Links */}
-          <Typography
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <WifiIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
+            <BatteryChargingFullIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
+
+            {/* Theme switcher */}
+            <IconButton
+              size="small"
+              onClick={toggleTheme}
+              sx={{
+                color: '#2aa198',
+                p: 0.5,
+                '&:hover': { backgroundColor: 'rgba(42, 161, 152, 0.1)' }
+              }}
+            >
+              {mode === 'dark' ? <LightModeIcon sx={{ fontSize: 16 }} /> : <DarkModeIcon sx={{ fontSize: 16 }} />}
+            </IconButton>
+
+            <Typography sx={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              {torontoTime || '12:00 PM'}
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* 2. DESKTOP GRID (Folders on left side) */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 48,
+            left: 24,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4,
+            zIndex: 5,
+          }}
+        >
+          {/* Folder: About */}
+          <Box
             onClick={() => openWindow('about')}
-            sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
-          >
-            About
-          </Typography>
-          <Typography
-            onClick={() => openWindow('experience')}
-            sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
-          >
-            Experience
-          </Typography>
-          <Typography
-            onClick={() => openWindow('education')}
-            sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
-          >
-            Education
-          </Typography>
-          <Typography
-            onClick={() => openWindow('projects')}
-            sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
-          >
-            Projects
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <WifiIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
-          <BatteryChargingFullIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
-
-          {/* Theme switcher */}
-          <IconButton
-            size="small"
-            onClick={toggleTheme}
             sx={{
-              color: '#2aa198',
-              p: 0.5,
-              '&:hover': { backgroundColor: 'rgba(42, 161, 152, 0.1)' }
-            }}
-          >
-            {mode === 'dark' ? <LightModeIcon sx={{ fontSize: 16 }} /> : <DarkModeIcon sx={{ fontSize: 16 }} />}
-          </IconButton>
-
-          <Typography sx={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
-            {torontoTime || '12:00 PM'}
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* 2. DESKTOP GRID (Folders on left side) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 48,
-          left: 24,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 4,
-          zIndex: 5,
-        }}
-      >
-        {/* Folder: About */}
-        <Box
-          onClick={() => openWindow('about')}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            cursor: 'pointer',
-            width: 76,
-            gap: 0.5,
-            transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.05)' },
-          }}
-        >
-          <FolderIcon sx={{ fontSize: 44, color: '#2aa198', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
-          <Typography
-            sx={{
-              fontSize: '0.75rem',
-              color: mode === 'dark' ? '#eee8d5' : '#073642',
-              fontWeight: 700,
-              fontFamily: 'var(--font-outfit)',
-              textAlign: 'center',
-              textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
-            }}
-          >
-            About Me
-          </Typography>
-        </Box>
-
-        {/* Folder: Experience */}
-        <Box
-          onClick={() => openWindow('experience')}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            cursor: 'pointer',
-            width: 76,
-            gap: 0.5,
-            transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.05)' },
-          }}
-        >
-          <FolderIcon sx={{ fontSize: 44, color: '#6c71c4', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
-          <Typography
-            sx={{
-              fontSize: '0.75rem',
-              color: mode === 'dark' ? '#eee8d5' : '#073642',
-              fontWeight: 700,
-              fontFamily: 'var(--font-outfit)',
-              textAlign: 'center',
-              textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
-            }}
-          >
-            Experience
-          </Typography>
-        </Box>
-
-        {/* Folder: Education */}
-        <Box
-          onClick={() => openWindow('education')}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            cursor: 'pointer',
-            width: 76,
-            gap: 0.5,
-            transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.05)' },
-          }}
-        >
-          <FolderIcon sx={{ fontSize: 44, color: '#859900', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
-          <Typography
-            sx={{
-              fontSize: '0.75rem',
-              color: mode === 'dark' ? '#eee8d5' : '#073642',
-              fontWeight: 700,
-              fontFamily: 'var(--font-outfit)',
-              textAlign: 'center',
-              textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
-            }}
-          >
-            Education
-          </Typography>
-        </Box>
-
-        {/* Folder: Projects */}
-        <Box
-          onClick={() => openWindow('projects')}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            cursor: 'pointer',
-            width: 76,
-            gap: 0.5,
-            transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.05)' },
-          }}
-        >
-          <FolderIcon sx={{ fontSize: 44, color: '#b58900', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
-          <Typography
-            sx={{
-              fontSize: '0.75rem',
-              color: mode === 'dark' ? '#eee8d5' : '#073642',
-              fontWeight: 700,
-              fontFamily: 'var(--font-outfit)',
-              textAlign: 'center',
-              textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
-            }}
-          >
-            Projects
-          </Typography>
-        </Box>
-
-        {/* App: Lofi Beats */}
-        <Box
-          onClick={() => openWindow('lofi')}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            cursor: 'pointer',
-            width: 76,
-            gap: 0.5,
-            transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.05)' },
-          }}
-        >
-          <Box
-            sx={{
-              width: 44,
-              height: 44,
-              borderRadius: 1.5,
-              backgroundColor: '#cb4b16',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fdf6e3',
-              boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+              cursor: 'pointer',
+              width: 76,
+              gap: 0.5,
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' },
             }}
           >
-            <HeadsetIcon sx={{ fontSize: 26 }} />
+            <FolderIcon sx={{ fontSize: 44, color: '#2aa198', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                color: mode === 'dark' ? '#eee8d5' : '#073642',
+                fontWeight: 700,
+                fontFamily: 'var(--font-outfit)',
+                textAlign: 'center',
+                textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
+              }}
+            >
+              About Me
+            </Typography>
           </Box>
-          <Typography
-            sx={{
-              fontSize: '0.75rem',
-              color: mode === 'dark' ? '#eee8d5' : '#073642',
-              fontWeight: 700,
-              fontFamily: 'var(--font-outfit)',
-              textAlign: 'center',
-              textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
-            }}
-          >
-            Lofi Player
-          </Typography>
-        </Box>
-      </Box>
 
-      {/* 3. OS APPLICATION WINDOWS */}
-
-      {/* ================= WINDOW: ABOUT ME ================= */}
-      {renderWindow('about', 'About Me', 850, 580, (
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 4, alignItems: 'start' }}>
+          {/* Folder: Experience */}
           <Box
+            onClick={() => openWindow('experience')}
             sx={{
-              position: 'relative',
-              width: 130,
-              height: 130,
-              borderRadius: '50%',
-              overflow: 'hidden',
-              border: '3px solid #2aa198',
-              flexShrink: 0,
-              mx: { xs: 'auto', sm: 0 },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              cursor: 'pointer',
+              width: 76,
+              gap: 0.5,
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' },
             }}
           >
-            <Image src="/lofi_pic.png" alt="Profile" fill className="object-cover" />
-          </Box>
-
-          <Box sx={{ flex: 1 }}>
-            <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center', flexWrap: 'wrap', mb: 2 }}>
-              <Typography variant="h5" sx={{ fontWeight: 800, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)' }}>
-                Hong Anh Khoa Nguyen
-              </Typography>
-              <Chip label="Noah Nguyen" size="small" sx={{ fontWeight: 700, backgroundColor: 'rgba(108,113,196,0.15)', color: '#6c71c4' }} />
-            </Box>
-
-            {/* Status Banner */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-              <Box className="pulse-status" sx={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#859900' }} />
-              <Typography sx={{ color: '#859900', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-outfit)' }}>
-                OLG AI Engineer Intern &bull; Open for Winter & Summer 2027 Internships
-              </Typography>
-            </Box>
-
-            <Typography sx={{ color: mode === 'dark' ? '#93a1a1' : '#586e75', mb: 2.5, lineHeight: 1.6, fontSize: '0.95rem' }}>
-              I am an Applied AI Engineer Intern at <strong>OLG</strong> (Ontario Lottery and Gaming Corporation) and a Computer Science student at the <strong>University of Calgary</strong>. I am passionate about applying artificial intelligence and cloud architectures to solve complex business pain points.
-            </Typography>
-
-            <Typography sx={{ color: mode === 'dark' ? '#839496' : '#657b83', mb: 4, lineHeight: 1.6, fontSize: '0.9rem' }}>
-              My main areas of focus involve designing deep learning inspection pipelines, constructing cognitive vector search databases, deploying microservice backends, and fine-tuning retrieval-augmented LLM systems.
-            </Typography>
-
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-              <Button variant="contained" component="a" href="/resume.pdf" target="_blank" sx={{ borderRadius: 100 }}>
-                View Resume / CV
-              </Button>
-              <Button variant="outlined" component="a" href="mailto:noahnghgwork@gmail.com" sx={{ borderRadius: 100, color: '#2aa198', borderColor: 'rgba(42,161,152,0.4)' }}>
-                Get in Touch
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      ))}
-
-      {/* ================= WINDOW: EXPERIENCE ================= */}
-      {renderWindow('experience', 'Professional Experience', 850, 600, (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
-          {experience.map((exp, idx) => (
-            <Box
-              key={idx}
+            <FolderIcon sx={{ fontSize: 44, color: '#6c71c4', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
+            <Typography
               sx={{
-                p: { xs: 2, sm: 3 },
-                borderRadius: 3.5,
-                backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
-                borderLeft: '4px solid #6c71c4',
-                border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.08)',
-                borderLeftWidth: 4,
+                fontSize: '0.75rem',
+                color: mode === 'dark' ? '#eee8d5' : '#073642',
+                fontWeight: 700,
+                fontFamily: 'var(--font-outfit)',
+                textAlign: 'center',
+                textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
               }}
             >
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'start', mb: 1.5 }}>
-                {exp.logo && (
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 1.5,
-                      overflow: 'hidden',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: 'white',
-                      flexShrink: 0,
-                      p: 0.5,
-                      border: '1px solid rgba(88, 110, 117, 0.15)',
-                    }}
-                  >
-                    <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
-                  </Box>
-                )}
-                <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 850, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)', lineHeight: 1.2 }}>
-                    {exp.title}
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: '#6c71c4', fontWeight: 700, display: 'block', mt: 0.2 }}>
-                    {exp.company}
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography variant="caption" sx={{ display: 'block', color: '#586e75', fontFamily: 'var(--font-mono)', mb: 1.5 }}>
-                {exp.period} &bull; {exp.location}
-              </Typography>
-              <Typography variant="body2" sx={{ color: mode === 'dark' ? '#839496' : '#586e75', lineHeight: 1.5 }}>
-                {exp.description}
-              </Typography>
-              {exp.tech && (
-                <Box sx={{ mt: 1.5, display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                  {exp.tech.map((t) => (
-                    shieldBadges[t] ? (
-                      <Box component="img" key={t} src={shieldBadges[t]} alt={t} sx={{ height: 20, borderRadius: 0.5 }} />
-                    ) : (
-                      <Chip
-                        key={t}
-                        label={t}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          fontSize: '0.7rem',
-                          height: 20,
-                          color: mode === 'dark' ? '#839496' : '#586e75',
-                          borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.2)' : 'rgba(7, 54, 66, 0.1)',
-                          fontFamily: 'var(--font-mono)',
-                        }}
-                      />
-                    )
-                  ))}
-                </Box>
-              )}
-            </Box>
-          ))}
-        </Box>
-      ))}
+              Experience
+            </Typography>
+          </Box>
 
-      {/* ================= WINDOW: EDUCATION ================= */}
-      {renderWindow('education', 'Academic Timeline', 850, 600, (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
-          {education.map((edu, idx) => (
-            <Box
-              key={idx}
+          {/* Folder: Education */}
+          <Box
+            onClick={() => openWindow('education')}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              cursor: 'pointer',
+              width: 76,
+              gap: 0.5,
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' },
+            }}
+          >
+            <FolderIcon sx={{ fontSize: 44, color: '#859900', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
+            <Typography
               sx={{
-                p: { xs: 2, sm: 3 },
-                borderRadius: 3.5,
-                backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
-                borderLeft: '4px solid #2aa198',
-                border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.08)',
-                borderLeftWidth: 4,
+                fontSize: '0.75rem',
+                color: mode === 'dark' ? '#eee8d5' : '#073642',
+                fontWeight: 700,
+                fontFamily: 'var(--font-outfit)',
+                textAlign: 'center',
+                textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
               }}
             >
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'start', mb: 1.5 }}>
-                {edu.logo && (
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 1.5,
-                      overflow: 'hidden',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: 'white',
-                      flexShrink: 0,
-                      p: 0.5,
-                      border: '1px solid rgba(88, 110, 117, 0.15)',
-                    }}
-                  >
-                    <img src={edu.logo} alt={edu.institution} className="max-w-full max-h-full object-contain" />
-                  </Box>
-                )}
-                <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 850, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)', lineHeight: 1.2 }}>
-                    {edu.institution}
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: '#2aa198', fontWeight: 700, display: 'block', mt: 0.2 }}>
-                    {edu.degree}
-                  </Typography>
-                </Box>
-              </Box>
+              Education
+            </Typography>
+          </Box>
 
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 1.5 }}>
-                <Typography variant="caption" sx={{ color: '#586e75', fontFamily: 'var(--font-mono)' }}>
-                  {edu.period}
-                </Typography>
-                {edu.gpa && (
-                  <span className="text-[#859900] font-semibold text-xs font-mono bg-[#859900]/10 px-2 py-0.5 rounded border border-[#859900]/25">
-                    GPA: {edu.gpa}
-                  </span>
-                )}
-              </Box>
-
-              <Typography variant="body2" sx={{ color: mode === 'dark' ? '#839496' : '#586e75', mb: 2, lineHeight: 1.5 }}>
-                {edu.description}
-              </Typography>
-
-              {edu.coursework && (
-                <Box sx={{ mt: 1.5 }}>
-                  <Typography variant="caption" sx={{ display: 'block', color: '#586e75', fontWeight: 700, mb: 1, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Key Coursework
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                    {edu.coursework.map((course, cIdx) => (
-                      <Chip
-                        key={cIdx}
-                        label={course}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          fontSize: '0.75rem',
-                          color: mode === 'dark' ? '#839496' : '#657b83',
-                          borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.2)' : 'rgba(7, 54, 66, 0.1)',
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              )}
-            </Box>
-          ))}
-        </Box>
-      ))}
-
-      {/* ================= WINDOW: PROJECTS ================= */}
-      {renderWindow('projects', 'Projects Spotlight File', 980, 620, (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          {projectsList.map((project, idx) => (
-            <Box
-              key={idx}
+          {/* Folder: Projects */}
+          <Box
+            onClick={() => openWindow('projects')}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              cursor: 'pointer',
+              width: 76,
+              gap: 0.5,
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' },
+            }}
+          >
+            <FolderIcon sx={{ fontSize: 44, color: '#b58900', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.35))' }} />
+            <Typography
               sx={{
+                fontSize: '0.75rem',
+                color: mode === 'dark' ? '#eee8d5' : '#073642',
+                fontWeight: 700,
+                fontFamily: 'var(--font-outfit)',
+                textAlign: 'center',
+                textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
+              }}
+            >
+              Projects
+            </Typography>
+          </Box>
+
+          {/* App: Lofi Beats */}
+          <Box
+            onClick={() => openWindow('lofi')}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              cursor: 'pointer',
+              width: 76,
+              gap: 0.5,
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' },
+            }}
+          >
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: 1.5,
+                backgroundColor: '#cb4b16',
                 display: 'flex',
-                flexDirection: { xs: 'column', sm: 'row' },
-                backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.2)' : 'rgba(7, 54, 66, 0.02)',
-                border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.1)',
-                borderRadius: 4,
-                overflow: 'hidden',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fdf6e3',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
               }}
             >
-              {/* Photo frame */}
+              <HeadsetIcon sx={{ fontSize: 26 }} />
+            </Box>
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                color: mode === 'dark' ? '#eee8d5' : '#073642',
+                fontWeight: 700,
+                fontFamily: 'var(--font-outfit)',
+                textAlign: 'center',
+                textShadow: mode === 'dark' ? '0 1px 4px rgba(0,0,0,0.8)' : '0 1px 3px rgba(255,255,255,0.8)',
+              }}
+            >
+              Lofi Player
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* 3. OS APPLICATION WINDOWS */}
+
+        {/* ================= WINDOW: ABOUT ME ================= */}
+        {renderWindow('about', 'About Me', 850, 580, (
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 4, alignItems: 'start' }}>
+            <Box
+              sx={{
+                position: 'relative',
+                width: 130,
+                height: 130,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '3px solid #2aa198',
+                flexShrink: 0,
+                mx: { xs: 'auto', sm: 0 },
+              }}
+            >
+              <Image src="/lofi_pic.png" alt="Profile" fill className="object-cover" />
+            </Box>
+
+            <Box sx={{ flex: 1 }}>
+              <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center', flexWrap: 'wrap', mb: 2 }}>
+                <Typography variant="h5" sx={{ fontWeight: 800, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)' }}>
+                  Hong Anh Khoa Nguyen
+                </Typography>
+                <Chip label="Noah Nguyen" size="small" sx={{ fontWeight: 700, backgroundColor: 'rgba(108,113,196,0.15)', color: '#6c71c4' }} />
+              </Box>
+
+              {/* Status Banner */}
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                <Box className="pulse-status" sx={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#859900' }} />
+                <Typography sx={{ color: '#859900', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-outfit)' }}>
+                  OLG AI Engineer Intern &bull; Open for Winter & Summer 2027 Internships
+                </Typography>
+              </Box>
+
+              <Typography sx={{ color: mode === 'dark' ? '#93a1a1' : '#586e75', mb: 2.5, lineHeight: 1.6, fontSize: '0.95rem' }}>
+                I am an Applied AI Engineer Intern at <strong>OLG</strong> (Ontario Lottery and Gaming Corporation) and a Computer Science student at the <strong>University of Calgary</strong>. I am passionate about applying artificial intelligence and cloud architectures to solve complex business pain points.
+              </Typography>
+
+              <Typography sx={{ color: mode === 'dark' ? '#839496' : '#657b83', mb: 4, lineHeight: 1.6, fontSize: '0.9rem' }}>
+                My main areas of focus involve designing deep learning inspection pipelines, constructing cognitive vector search databases, deploying microservice backends, and fine-tuning retrieval-augmented LLM systems.
+              </Typography>
+
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Button variant="contained" component="a" href="/resume.pdf" target="_blank" sx={{ borderRadius: 100 }}>
+                  View Resume / CV
+                </Button>
+                <Button variant="outlined" component="a" href="mailto:noahnghgwork@gmail.com" sx={{ borderRadius: 100, color: '#2aa198', borderColor: 'rgba(42,161,152,0.4)' }}>
+                  Get in Touch
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        ))}
+
+        {/* ================= WINDOW: EXPERIENCE ================= */}
+        {renderWindow('experience', 'Professional Experience', 850, 600, (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
+            {experience.map((exp, idx) => (
               <Box
+                key={idx}
                 sx={{
-                  width: { xs: '100%', sm: 200 },
-                  height: 180,
-                  position: 'relative',
-                  flexShrink: 0,
-                  borderRight: { xs: 'none', sm: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.1)' },
+                  p: { xs: 2, sm: 3 },
+                  borderRadius: 3.5,
+                  backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
+                  borderLeft: '4px solid #6c71c4',
+                  border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.08)',
+                  borderLeftWidth: 4,
                 }}
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 600px) 100vw, 200px"
-                  className="object-cover"
-                />
-                {project.type && (
-                  <Chip
-                    label={project.type}
-                    size="small"
-                    sx={{
-                      position: 'absolute',
-                      top: 10,
-                      left: 10,
-                      backgroundColor: 'rgba(0, 43, 54, 0.85)',
-                      color: '#2aa198',
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      fontFamily: 'var(--font-mono)',
-                      border: '1px solid rgba(42,161,152,0.3)',
-                    }}
-                  />
+                <Box sx={{ display: 'flex', gap: 2, alignItems: 'start', mb: 1.5 }}>
+                  {exp.logo && (
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 1.5,
+                        overflow: 'hidden',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: 'white',
+                        flexShrink: 0,
+                        p: 0.5,
+                        border: '1px solid rgba(88, 110, 117, 0.15)',
+                      }}
+                    >
+                      <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
+                    </Box>
+                  )}
+                  <Box>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 850, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)', lineHeight: 1.2 }}>
+                      {exp.title}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: '#6c71c4', fontWeight: 700, display: 'block', mt: 0.2 }}>
+                      {exp.company}
+                    </Typography>
+                  </Box>
+                </Box>
+                <Typography variant="caption" sx={{ display: 'block', color: '#586e75', fontFamily: 'var(--font-mono)', mb: 1.5 }}>
+                  {exp.period} &bull; {exp.location}
+                </Typography>
+                <Typography variant="body2" sx={{ color: mode === 'dark' ? '#839496' : '#586e75', lineHeight: 1.5 }}>
+                  {exp.description}
+                </Typography>
+                {exp.tech && (
+                  <Box sx={{ mt: 1.5, display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+                    {exp.tech.map((t) => (
+                      shieldBadges[t] ? (
+                        <Box component="img" key={t} src={shieldBadges[t]} alt={t} sx={{ height: 20, borderRadius: 0.5 }} />
+                      ) : (
+                        <Chip
+                          key={t}
+                          label={t}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            fontSize: '0.7rem',
+                            height: 20,
+                            color: mode === 'dark' ? '#839496' : '#586e75',
+                            borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.2)' : 'rgba(7, 54, 66, 0.1)',
+                            fontFamily: 'var(--font-mono)',
+                          }}
+                        />
+                      )
+                    ))}
+                  </Box>
                 )}
               </Box>
-
-              {/* Text Details */}
-              <Box sx={{ p: { xs: 2, sm: 3 }, flex: 1, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                <Typography variant="h6" sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', fontWeight: 800, fontFamily: 'var(--font-outfit)' }}>
-                  {project.title}
-                </Typography>
-                <Typography sx={{ color: mode === 'dark' ? '#93a1a1' : '#586e75', fontSize: '0.85rem', lineHeight: 1.45 }}>
-                  {project.description}
-                </Typography>
-
-                {/* Badges */}
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 'auto' }}>
-                  {project.tech.map((tech) => (
-                    shieldBadges[tech] ? (
-                      <Box component="img" key={tech} src={shieldBadges[tech]} alt={tech} sx={{ height: 20, borderRadius: 0.5 }} />
-                    ) : (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          fontSize: '0.65rem',
-                          height: 20,
-                          color: mode === 'dark' ? '#839496' : '#586e75',
-                          borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.25)' : 'rgba(7, 54, 66, 0.15)',
-                          fontFamily: 'var(--font-mono)',
-                        }}
-                      />
-                    )
-                  ))}
-                </Box>
-
-                {/* Actions buttons */}
-                <Box sx={{ display: 'flex', gap: 1.5, mt: 1 }}>
-                  {project.github && (
-                    <Button
-                      variant="outlined"
-                      size="small"
-                      component="a"
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      startIcon={<GitHubIcon />}
-                      sx={{ fontSize: '0.75rem', py: 0.6, color: '#2aa198', borderColor: 'rgba(42, 161, 152, 0.4)' }}
-                    >
-                      Source Code
-                    </Button>
-                  )}
-                  {project.demo && (
-                    <Button
-                      variant="contained"
-                      size="small"
-                      component="a"
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      startIcon={<LaunchIcon />}
-                      sx={{ fontSize: '0.75rem', py: 0.6, color: '#002b36' }}
-                    >
-                      Live Link
-                    </Button>
-                  )}
-                </Box>
-              </Box>
-            </Box>
-          ))}
-        </Box>
-      ))}
-
-      {/* ================= WINDOW: LOFI beats player ================= */}
-      {renderWindow('lofi', 'Lofi Audio Player', 460, 260, (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, pt: 1 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-            {/* Play/Pause Button */}
-            <IconButton
-              onClick={togglePlay}
-              sx={{
-                backgroundColor: isPlaying ? '#6c71c4' : '#2aa198',
-                color: '#002b36',
-                width: 54,
-                height: 54,
-                boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
-                '&:hover': {
-                  backgroundColor: isPlaying ? '#585db2' : '#238a80',
-                },
-              }}
-            >
-              {isPlaying ? <PauseIcon sx={{ fontSize: 28 }} /> : <PlayArrowIcon sx={{ fontSize: 28 }} />}
-            </IconButton>
-
-            <Box>
-              <Typography variant="subtitle2" sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', fontWeight: 800, fontSize: '1rem', fontFamily: 'var(--font-outfit)' }}>
-                {isPlaying ? 'Synthesizer Calm Beats' : 'Music Stopped'}
-              </Typography>
-              <Typography variant="caption" sx={{ color: '#586e75', display: 'block', fontFamily: 'var(--font-mono)' }}>
-                {isPlaying ? 'Now Playing &bull; 128kbps' : 'Click Play to Begin Beat'}
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Equalizer animation */}
-          <Box sx={{ display: 'flex', alignItems: 'flex-end', height: 20, gap: 0.5, width: 30, mt: 1 }}>
-            {[1, 2, 3, 4, 5].map(bar => (
-              <Box
-                key={bar}
-                className={`eq-bar eq-bar-${bar}`}
-                sx={{
-                  width: 3.5,
-                  height: '100%',
-                  backgroundColor: '#6c71c4',
-                  borderRadius: '2px 2px 0 0',
-                  animationPlayState: isPlaying ? 'running' : 'paused',
-                }}
-              />
             ))}
           </Box>
+        ))}
 
-          {/* Volume control */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, width: { xs: 160, sm: 220 }, mt: 1 }}>
-            <IconButton onClick={toggleMute} sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', p: 0.5 }}>
-              {isMuted ? <VolumeOffIcon sx={{ fontSize: 18 }} /> : <VolumeUpIcon sx={{ fontSize: 18 }} />}
-            </IconButton>
-            <Slider
-              size="small"
-              value={volume}
-              min={0}
-              max={1}
-              step={0.05}
-              onChange={handleVolumeChange}
-              sx={{
-                color: '#6c71c4',
-                height: 4,
-                '& .MuiSlider-thumb': {
-                  width: 8,
-                  height: 8,
-                },
-              }}
-            />
+        {/* ================= WINDOW: EDUCATION ================= */}
+        {renderWindow('education', 'Academic Timeline', 850, 600, (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
+            {education.map((edu, idx) => (
+              <Box
+                key={idx}
+                sx={{
+                  p: { xs: 2, sm: 3 },
+                  borderRadius: 3.5,
+                  backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
+                  borderLeft: '4px solid #2aa198',
+                  border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.08)',
+                  borderLeftWidth: 4,
+                }}
+              >
+                <Box sx={{ display: 'flex', gap: 2, alignItems: 'start', mb: 1.5 }}>
+                  {edu.logo && (
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 1.5,
+                        overflow: 'hidden',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: 'white',
+                        flexShrink: 0,
+                        p: 0.5,
+                        border: '1px solid rgba(88, 110, 117, 0.15)',
+                      }}
+                    >
+                      <img src={edu.logo} alt={edu.institution} className="max-w-full max-h-full object-contain" />
+                    </Box>
+                  )}
+                  <Box>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 850, color: mode === 'dark' ? '#eee8d5' : '#073642', fontFamily: 'var(--font-outfit)', lineHeight: 1.2 }}>
+                      {edu.institution}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: '#2aa198', fontWeight: 700, display: 'block', mt: 0.2 }}>
+                      {edu.degree}
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 1.5 }}>
+                  <Typography variant="caption" sx={{ color: '#586e75', fontFamily: 'var(--font-mono)' }}>
+                    {edu.period}
+                  </Typography>
+                  {edu.gpa && (
+                    <span className="text-[#859900] font-semibold text-xs font-mono bg-[#859900]/10 px-2 py-0.5 rounded border border-[#859900]/25">
+                      GPA: {edu.gpa}
+                    </span>
+                  )}
+                </Box>
+
+                <Typography variant="body2" sx={{ color: mode === 'dark' ? '#839496' : '#586e75', mb: 2, lineHeight: 1.5 }}>
+                  {edu.description}
+                </Typography>
+
+                {edu.coursework && (
+                  <Box sx={{ mt: 1.5 }}>
+                    <Typography variant="caption" sx={{ display: 'block', color: '#586e75', fontWeight: 700, mb: 1, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      Key Coursework
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+                      {edu.coursework.map((course, cIdx) => (
+                        <Chip
+                          key={cIdx}
+                          label={course}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            fontSize: '0.75rem',
+                            color: mode === 'dark' ? '#839496' : '#657b83',
+                            borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.2)' : 'rgba(7, 54, 66, 0.1)',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                )}
+              </Box>
+            ))}
           </Box>
-        </Box>
-      ))}
+        ))}
 
-      {/* 4. BOTTOM OS DOCK CONTAINER (AUTO-HIDES, HOVER TRIGGER AREA) */}
-      <Box
-        className="dock-trigger-zone"
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          height: { xs: 'auto', md: 60 }, // On mobile, auto height (no hover buffer needed)
-          display: 'flex',
-          alignItems: 'flex-end',
-          zIndex: 10000,
-          pb: 1.5, // 12px margin from bottom edge
-          // Hover logic to slide up - only on desktop
-          '&:hover .os-dock-container': {
-            transform: { xs: 'none', md: 'translateY(0)' },
-            opacity: { xs: 1, md: 1 },
-          },
-        }}
-      >
+        {/* ================= WINDOW: PROJECTS ================= */}
+        {renderWindow('projects', 'Projects Spotlight File', 980, 620, (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {projectsList.map((project, idx) => (
+              <Box
+                key={idx}
+                sx={{
+                  display: 'flex',
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.2)' : 'rgba(7, 54, 66, 0.02)',
+                  border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.1)',
+                  borderRadius: 4,
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Photo frame */}
+                <Box
+                  sx={{
+                    width: { xs: '100%', sm: 200 },
+                    height: 180,
+                    position: 'relative',
+                    flexShrink: 0,
+                    borderRight: { xs: 'none', sm: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.15)' : '1px solid rgba(7, 54, 66, 0.1)' },
+                  }}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 600px) 100vw, 200px"
+                    className="object-cover"
+                  />
+                  {project.type && (
+                    <Chip
+                      label={project.type}
+                      size="small"
+                      sx={{
+                        position: 'absolute',
+                        top: 10,
+                        left: 10,
+                        backgroundColor: 'rgba(0, 43, 54, 0.85)',
+                        color: '#2aa198',
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        fontFamily: 'var(--font-mono)',
+                        border: '1px solid rgba(42,161,152,0.3)',
+                      }}
+                    />
+                  )}
+                </Box>
+
+                {/* Text Details */}
+                <Box sx={{ p: { xs: 2, sm: 3 }, flex: 1, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                  <Typography variant="h6" sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', fontWeight: 800, fontFamily: 'var(--font-outfit)' }}>
+                    {project.title}
+                  </Typography>
+                  <Typography sx={{ color: mode === 'dark' ? '#93a1a1' : '#586e75', fontSize: '0.85rem', lineHeight: 1.45 }}>
+                    {project.description}
+                  </Typography>
+
+                  {/* Badges */}
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 'auto' }}>
+                    {project.tech.map((tech) => (
+                      shieldBadges[tech] ? (
+                        <Box component="img" key={tech} src={shieldBadges[tech]} alt={tech} sx={{ height: 20, borderRadius: 0.5 }} />
+                      ) : (
+                        <Chip
+                          key={tech}
+                          label={tech}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            fontSize: '0.65rem',
+                            height: 20,
+                            color: mode === 'dark' ? '#839496' : '#586e75',
+                            borderColor: mode === 'dark' ? 'rgba(88, 110, 117, 0.25)' : 'rgba(7, 54, 66, 0.15)',
+                            fontFamily: 'var(--font-mono)',
+                          }}
+                        />
+                      )
+                    ))}
+                  </Box>
+
+                  {/* Actions buttons */}
+                  <Box sx={{ display: 'flex', gap: 1.5, mt: 1 }}>
+                    {project.github && (
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        component="a"
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        startIcon={<GitHubIcon />}
+                        sx={{ fontSize: '0.75rem', py: 0.6, color: '#2aa198', borderColor: 'rgba(42, 161, 152, 0.4)' }}
+                      >
+                        Source Code
+                      </Button>
+                    )}
+                    {project.demo && (
+                      <Button
+                        variant="contained"
+                        size="small"
+                        component="a"
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        startIcon={<LaunchIcon />}
+                        sx={{ fontSize: '0.75rem', py: 0.6, color: '#002b36' }}
+                      >
+                        Live Link
+                      </Button>
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        ))}
+
+        {/* ================= WINDOW: LOFI beats player ================= */}
+        {renderWindow('lofi', 'Lofi Audio Player', 460, 260, (
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, pt: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+              {/* Play/Pause Button */}
+              <IconButton
+                onClick={togglePlay}
+                sx={{
+                  backgroundColor: isPlaying ? '#6c71c4' : '#2aa198',
+                  color: '#002b36',
+                  width: 54,
+                  height: 54,
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
+                  '&:hover': {
+                    backgroundColor: isPlaying ? '#585db2' : '#238a80',
+                  },
+                }}
+              >
+                {isPlaying ? <PauseIcon sx={{ fontSize: 28 }} /> : <PlayArrowIcon sx={{ fontSize: 28 }} />}
+              </IconButton>
+
+              <Box>
+                <Typography variant="subtitle2" sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', fontWeight: 800, fontSize: '1rem', fontFamily: 'var(--font-outfit)' }}>
+                  {isPlaying ? 'Synthesizer Calm Beats' : 'Music Stopped'}
+                </Typography>
+                <Typography variant="caption" sx={{ color: '#586e75', display: 'block', fontFamily: 'var(--font-mono)' }}>
+                  {isPlaying ? 'Now Playing &bull; 128kbps' : 'Click Play to Begin Beat'}
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* Equalizer animation */}
+            <Box sx={{ display: 'flex', alignItems: 'flex-end', height: 20, gap: 0.5, width: 30, mt: 1 }}>
+              {[1, 2, 3, 4, 5].map(bar => (
+                <Box
+                  key={bar}
+                  className={`eq-bar eq-bar-${bar}`}
+                  sx={{
+                    width: 3.5,
+                    height: '100%',
+                    backgroundColor: '#6c71c4',
+                    borderRadius: '2px 2px 0 0',
+                    animationPlayState: isPlaying ? 'running' : 'paused',
+                  }}
+                />
+              ))}
+            </Box>
+
+            {/* Volume control */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, width: { xs: 160, sm: 220 }, mt: 1 }}>
+              <IconButton onClick={toggleMute} sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', p: 0.5 }}>
+                {isMuted ? <VolumeOffIcon sx={{ fontSize: 18 }} /> : <VolumeUpIcon sx={{ fontSize: 18 }} />}
+              </IconButton>
+              <Slider
+                size="small"
+                value={volume}
+                min={0}
+                max={1}
+                step={0.05}
+                onChange={handleVolumeChange}
+                sx={{
+                  color: '#6c71c4',
+                  height: 4,
+                  '& .MuiSlider-thumb': {
+                    width: 8,
+                    height: 8,
+                  },
+                }}
+              />
+            </Box>
+          </Box>
+        ))}
+
+        {/* 4. BOTTOM OS DOCK CONTAINER (AUTO-HIDES, HOVER TRIGGER AREA) */}
         <Box
-          className="os-dock-container"
+          className="dock-trigger-zone"
           sx={{
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            height: { xs: 'auto', md: 60 }, // On mobile, auto height (no hover buffer needed)
             display: 'flex',
-            gap: { xs: 1.25, sm: 2.5 },
             alignItems: 'flex-end',
-            px: { xs: 1.5, sm: 3 },
-            py: 1.5,
-            backgroundColor: mode === 'dark' ? 'rgba(7, 54, 66, 0.85)' : 'rgba(238, 232, 213, 0.85)',
-            borderRadius: 4,
-            border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.2)' : '1px solid rgba(7, 54, 66, 0.12)',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4)',
-            transform: { xs: 'translateY(0)', md: 'translateY(80px)' }, // Always visible on mobile, slides off-screen on desktop
-            opacity: { xs: 1, md: 0.35 }, // Full opacity on mobile, dims on desktop when idle
-            transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease',
+            zIndex: 10000,
+            pb: 1.5, // 12px margin from bottom edge
+            // Hover logic to slide up - only on desktop
+            '&:hover .os-dock-container': {
+              transform: { xs: 'none', md: 'translateY(0)' },
+              opacity: { xs: 1, md: 1 },
+            },
           }}
         >
-          {/* Dock Item: Finder (About Me) */}
-          <Tooltip title="About Me" placement="top" arrow>
-            <Box
-              onClick={() => handleDockClick('about')}
-              className="os-dock-icon"
-              sx={{
-                width: { xs: 42, sm: 48 },
-                height: { xs: 42, sm: 48 },
-                borderRadius: 2,
-                backgroundColor: '#268bd2', // Blue
-                color: '#eee8d5',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
-                position: 'relative',
-              }}
-            >
-              <AccountCircleIcon sx={{ fontSize: { xs: 26, sm: 30 } }} />
-              {windows.about.isOpen && (
-                <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
-              )}
-            </Box>
-          </Tooltip>
+          <Box
+            className="os-dock-container"
+            sx={{
+              display: 'flex',
+              gap: { xs: 1.25, sm: 2.5 },
+              alignItems: 'flex-end',
+              px: { xs: 1.5, sm: 3 },
+              py: 1.5,
+              backgroundColor: mode === 'dark' ? 'rgba(7, 54, 66, 0.85)' : 'rgba(238, 232, 213, 0.85)',
+              borderRadius: 4,
+              border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.2)' : '1px solid rgba(7, 54, 66, 0.12)',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4)',
+              transform: { xs: 'translateY(0)', md: 'translateY(80px)' }, // Always visible on mobile, slides off-screen on desktop
+              opacity: { xs: 1, md: 0.35 }, // Full opacity on mobile, dims on desktop when idle
+              transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease',
+            }}
+          >
+            {/* Dock Item: Finder (About Me) */}
+            <Tooltip title="About Me" placement="top" arrow>
+              <Box
+                onClick={() => handleDockClick('about')}
+                className="os-dock-icon"
+                sx={{
+                  width: { xs: 42, sm: 48 },
+                  height: { xs: 42, sm: 48 },
+                  borderRadius: 2,
+                  backgroundColor: '#268bd2', // Blue
+                  color: '#eee8d5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                  position: 'relative',
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: { xs: 26, sm: 30 } }} />
+                {windows.about.isOpen && (
+                  <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
+                )}
+              </Box>
+            </Tooltip>
 
-          {/* Dock Item: TextEdit (Experience) */}
-          <Tooltip title="Experience" placement="top" arrow>
-            <Box
-              onClick={() => handleDockClick('experience')}
-              className="os-dock-icon"
-              sx={{
-                width: { xs: 42, sm: 48 },
-                height: { xs: 42, sm: 48 },
-                borderRadius: 2,
-                backgroundColor: '#6c71c4', // Violet
-                color: '#eee8d5',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
-                position: 'relative',
-              }}
-            >
-              <BusinessCenterIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
-              {windows.experience.isOpen && (
-                <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
-              )}
-            </Box>
-          </Tooltip>
+            {/* Dock Item: TextEdit (Experience) */}
+            <Tooltip title="Experience" placement="top" arrow>
+              <Box
+                onClick={() => handleDockClick('experience')}
+                className="os-dock-icon"
+                sx={{
+                  width: { xs: 42, sm: 48 },
+                  height: { xs: 42, sm: 48 },
+                  borderRadius: 2,
+                  backgroundColor: '#6c71c4', // Violet
+                  color: '#eee8d5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                  position: 'relative',
+                }}
+              >
+                <BusinessCenterIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
+                {windows.experience.isOpen && (
+                  <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
+                )}
+              </Box>
+            </Tooltip>
 
-          {/* Dock Item: School Calendar (Education) */}
-          <Tooltip title="Education" placement="top" arrow>
-            <Box
-              onClick={() => handleDockClick('education')}
-              className="os-dock-icon"
-              sx={{
-                width: { xs: 42, sm: 48 },
-                height: { xs: 42, sm: 48 },
-                borderRadius: 2,
-                backgroundColor: '#859900', // Green
-                color: '#eee8d5',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
-                position: 'relative',
-              }}
-            >
-              <SchoolIcon sx={{ fontSize: 24 }} />
-              {windows.education.isOpen && (
-                <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
-              )}
-            </Box>
-          </Tooltip>
+            {/* Dock Item: School Calendar (Education) */}
+            <Tooltip title="Education" placement="top" arrow>
+              <Box
+                onClick={() => handleDockClick('education')}
+                className="os-dock-icon"
+                sx={{
+                  width: { xs: 42, sm: 48 },
+                  height: { xs: 42, sm: 48 },
+                  borderRadius: 2,
+                  backgroundColor: '#859900', // Green
+                  color: '#eee8d5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                  position: 'relative',
+                }}
+              >
+                <SchoolIcon sx={{ fontSize: 24 }} />
+                {windows.education.isOpen && (
+                  <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
+                )}
+              </Box>
+            </Tooltip>
 
-          {/* Dock Item: Terminal (Projects) */}
-          <Tooltip title="Projects Catalog" placement="top" arrow>
-            <Box
-              onClick={() => handleDockClick('projects')}
-              className="os-dock-icon"
-              sx={{
-                width: { xs: 42, sm: 48 },
-                height: { xs: 42, sm: 48 },
-                borderRadius: 2,
-                backgroundColor: '#002b36', // Dark Slate
-                border: '1px solid rgba(88, 110, 117, 0.4)',
-                color: '#2aa198',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
-                position: 'relative',
-              }}
-            >
-              <TerminalIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
-              {windows.projects.isOpen && (
-                <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#2aa198' }} />
-              )}
-            </Box>
-          </Tooltip>
+            {/* Dock Item: Terminal (Projects) */}
+            <Tooltip title="Projects Catalog" placement="top" arrow>
+              <Box
+                onClick={() => handleDockClick('projects')}
+                className="os-dock-icon"
+                sx={{
+                  width: { xs: 42, sm: 48 },
+                  height: { xs: 42, sm: 48 },
+                  borderRadius: 2,
+                  backgroundColor: '#002b36', // Dark Slate
+                  border: '1px solid rgba(88, 110, 117, 0.4)',
+                  color: '#2aa198',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                  position: 'relative',
+                }}
+              >
+                <TerminalIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
+                {windows.projects.isOpen && (
+                  <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#2aa198' }} />
+                )}
+              </Box>
+            </Tooltip>
 
-          {/* Dock Item: iTunes / Music (Lofi Beats) */}
-          <Tooltip title="Lofi Player" placement="top" arrow>
-            <Box
-              onClick={() => handleDockClick('lofi')}
-              className="os-dock-icon"
-              sx={{
-                width: { xs: 42, sm: 48 },
-                height: { xs: 42, sm: 48 },
-                borderRadius: 2,
-                backgroundColor: '#cb4b16', // Orange
-                color: '#eee8d5',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
-                position: 'relative',
-              }}
-            >
-              <HeadsetIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
-              {windows.lofi.isOpen && (
-                <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
-              )}
-            </Box>
-          </Tooltip>
+            {/* Dock Item: iTunes / Music (Lofi Beats) */}
+            <Tooltip title="Lofi Player" placement="top" arrow>
+              <Box
+                onClick={() => handleDockClick('lofi')}
+                className="os-dock-icon"
+                sx={{
+                  width: { xs: 42, sm: 48 },
+                  height: { xs: 42, sm: 48 },
+                  borderRadius: 2,
+                  backgroundColor: '#cb4b16', // Orange
+                  color: '#eee8d5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                  position: 'relative',
+                }}
+              >
+                <HeadsetIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
+                {windows.lofi.isOpen && (
+                  <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
+                )}
+              </Box>
+            </Tooltip>
+          </Box>
         </Box>
-      </Box>
 
-    </Box>
+      </Box>
 
       {/* 5. Developer Boot Terminal Intro Overlay */}
       {showIntro && (
