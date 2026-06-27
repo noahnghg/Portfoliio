@@ -517,7 +517,7 @@ export default function Home() {
       className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${showIntro ? 'intro-active' : ''} ${revealActive ? 'reveal-active' : ''}`}
       sx={{
         width: '100vw',
-        height: '100vh',
+        height: '100dvh',
         position: 'relative',
         overflow: 'hidden',
       }}
