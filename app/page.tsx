@@ -513,7 +513,7 @@ export default function Home() {
 
   return (
     <Box
-      className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${revealActive ? 'reveal-active' : ''}`}
+      className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${showIntro ? 'intro-active' : ''} ${revealActive ? 'reveal-active' : ''}`}
       sx={{
         width: '100vw',
         height: '100vh',

@@ -194,7 +194,7 @@ html {
   animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
-.os-desktop-reveal {
+.os-desktop-reveal.intro-active {
   clip-path: circle(0% at 50% 50%);
 }
 
