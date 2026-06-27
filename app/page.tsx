@@ -564,25 +564,25 @@ export default function Home() {
             {/* Quick Menu Links */}
             <Typography
               onClick={() => openWindow('about')}
-              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', md: 'block' } }}
             >
               About
             </Typography>
             <Typography
               onClick={() => openWindow('experience')}
-              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', md: 'block' } }}
             >
               Experience
             </Typography>
             <Typography
               onClick={() => openWindow('education')}
-              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', md: 'block' } }}
             >
               Education
             </Typography>
             <Typography
               onClick={() => openWindow('projects')}
-              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', sm: 'block' } }}
+              sx={{ cursor: 'pointer', '&:hover': { color: '#2aa198' }, display: { xs: 'none', md: 'block' } }}
             >
               Projects
             </Typography>
