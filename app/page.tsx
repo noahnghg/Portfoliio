@@ -390,8 +390,8 @@ export default function Home() {
         sx={{
           position: 'absolute',
           width: win.isMaximized ? '100%' : { xs: '100%', md: width },
-          height: win.isMaximized ? 'calc(100% - 28px)' : { xs: 'calc(100% - 28px)', md: height },
-          maxHeight: win.isMaximized ? 'calc(100% - 28px)' : { xs: 'calc(100% - 28px)', md: 'calc(100vh - 140px)' },
+          height: win.isMaximized ? 'calc(100% - 28px - 72px)' : { xs: 'calc(100% - 28px - 72px)', md: height },
+          maxHeight: win.isMaximized ? 'calc(100% - 28px - 72px)' : { xs: 'calc(100% - 28px - 72px)', md: 'calc(100vh - 140px)' },
           top: win.isMaximized ? 28 : { xs: 28, md: '50%' },
           left: win.isMaximized ? 0 : { xs: 0, md: '50%' },
           transform: win.isMaximized ? 'none' : { xs: 'none', md: 'translate(-50%, -50%)' },
@@ -402,7 +402,7 @@ export default function Home() {
           flexDirection: 'column',
           boxShadow: '0 24px 60px rgba(0, 0, 0, 0.45)',
           overflow: 'hidden',
-          borderRadius: win.isMaximized ? 0 : { xs: 0, md: 3 },
+          borderRadius: { xs: 2, md: win.isMaximized ? 0 : 3 },
           transition: 'all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
         }}
       >
@@ -504,7 +504,7 @@ export default function Home() {
         </Box>
 
         {/* Window Content */}
-        <Box className="window-scrollable" sx={{ flex: 1, p: 3.5, overflowY: 'auto' }}>
+        <Box className="window-scrollable" sx={{ flex: 1, p: { xs: 2, sm: 3.5 }, overflowY: 'auto' }}>
           {children}
         </Box>
       </Card>
@@ -589,8 +589,8 @@ export default function Home() {
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <WifiIcon sx={{ fontSize: 16 }} />
-          <BatteryChargingFullIcon sx={{ fontSize: 16 }} />
+          <WifiIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
+          <BatteryChargingFullIcon sx={{ fontSize: 16, display: { xs: 'none', sm: 'block' } }} />
 
           {/* Theme switcher */}
           <IconButton
@@ -846,7 +846,7 @@ export default function Home() {
             <Box
               key={idx}
               sx={{
-                p: 3,
+                p: { xs: 2, sm: 3 },
                 borderRadius: 3.5,
                 backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
                 borderLeft: '4px solid #6c71c4',
@@ -924,7 +924,7 @@ export default function Home() {
             <Box
               key={idx}
               sx={{
-                p: 3,
+                p: { xs: 2, sm: 3 },
                 borderRadius: 3.5,
                 backgroundColor: mode === 'dark' ? 'rgba(0, 43, 54, 0.25)' : 'rgba(7, 54, 66, 0.03)',
                 borderLeft: '4px solid #2aa198',
@@ -1056,7 +1056,7 @@ export default function Home() {
               </Box>
 
               {/* Text Details */}
-              <Box sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <Box sx={{ p: { xs: 2, sm: 3 }, flex: 1, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                 <Typography variant="h6" sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', fontWeight: 800, fontFamily: 'var(--font-outfit)' }}>
                   {project.title}
                 </Typography>
@@ -1173,7 +1173,7 @@ export default function Home() {
           </Box>
 
           {/* Volume control */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, width: 220, mt: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, width: { xs: 160, sm: 220 }, mt: 1 }}>
             <IconButton onClick={toggleMute} sx={{ color: mode === 'dark' ? '#eee8d5' : '#073642', p: 0.5 }}>
               {isMuted ? <VolumeOffIcon sx={{ fontSize: 18 }} /> : <VolumeUpIcon sx={{ fontSize: 18 }} />}
             </IconButton>
@@ -1205,15 +1205,15 @@ export default function Home() {
           bottom: 0,
           left: '50%',
           transform: 'translateX(-50%)',
-          height: 60, // Hover detection zone height
+          height: { xs: 'auto', md: 60 }, // On mobile, auto height (no hover buffer needed)
           display: 'flex',
           alignItems: 'flex-end',
           zIndex: 10000,
           pb: 1.5, // 12px margin from bottom edge
-          // Hover logic to slide up
+          // Hover logic to slide up - only on desktop
           '&:hover .os-dock-container': {
-            transform: 'translateY(0)',
-            opacity: 1,
+            transform: { xs: 'none', md: 'translateY(0)' },
+            opacity: { xs: 1, md: 1 },
           },
         }}
       >
@@ -1221,16 +1221,16 @@ export default function Home() {
           className="os-dock-container"
           sx={{
             display: 'flex',
-            gap: 2.5,
+            gap: { xs: 1.25, sm: 2.5 },
             alignItems: 'flex-end',
-            px: 3,
+            px: { xs: 1.5, sm: 3 },
             py: 1.5,
-            backgroundColor: mode === 'dark' ? 'rgba(7, 54, 66, 0.65)' : 'rgba(238, 232, 213, 0.65)',
+            backgroundColor: mode === 'dark' ? 'rgba(7, 54, 66, 0.85)' : 'rgba(238, 232, 213, 0.85)',
             borderRadius: 4,
             border: mode === 'dark' ? '1px solid rgba(88, 110, 117, 0.2)' : '1px solid rgba(7, 54, 66, 0.12)',
             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4)',
-            transform: 'translateY(80px)', // Slides down off-screen initially
-            opacity: 0.35, // Dims when hidden
+            transform: { xs: 'translateY(0)', md: 'translateY(80px)' }, // Always visible on mobile, slides off-screen on desktop
+            opacity: { xs: 1, md: 0.35 }, // Full opacity on mobile, dims on desktop when idle
             transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease',
           }}
         >
@@ -1240,8 +1240,8 @@ export default function Home() {
               onClick={() => handleDockClick('about')}
               className="os-dock-icon"
               sx={{
-                width: 48,
-                height: 48,
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
                 borderRadius: 2,
                 backgroundColor: '#268bd2', // Blue
                 color: '#eee8d5',
@@ -1253,7 +1253,7 @@ export default function Home() {
                 position: 'relative',
               }}
             >
-              <AccountCircleIcon sx={{ fontSize: 30 }} />
+              <AccountCircleIcon sx={{ fontSize: { xs: 26, sm: 30 } }} />
               {windows.about.isOpen && (
                 <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
               )}
@@ -1266,8 +1266,8 @@ export default function Home() {
               onClick={() => handleDockClick('experience')}
               className="os-dock-icon"
               sx={{
-                width: 48,
-                height: 48,
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
                 borderRadius: 2,
                 backgroundColor: '#6c71c4', // Violet
                 color: '#eee8d5',
@@ -1279,7 +1279,7 @@ export default function Home() {
                 position: 'relative',
               }}
             >
-              <BusinessCenterIcon sx={{ fontSize: 26 }} />
+              <BusinessCenterIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
               {windows.experience.isOpen && (
                 <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
               )}
@@ -1292,8 +1292,8 @@ export default function Home() {
               onClick={() => handleDockClick('education')}
               className="os-dock-icon"
               sx={{
-                width: 48,
-                height: 48,
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
                 borderRadius: 2,
                 backgroundColor: '#859900', // Green
                 color: '#eee8d5',
@@ -1305,7 +1305,7 @@ export default function Home() {
                 position: 'relative',
               }}
             >
-              <SchoolIcon sx={{ fontSize: 28 }} />
+              <SchoolIcon sx={{ fontSize: 24 }} />
               {windows.education.isOpen && (
                 <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
               )}
@@ -1318,8 +1318,8 @@ export default function Home() {
               onClick={() => handleDockClick('projects')}
               className="os-dock-icon"
               sx={{
-                width: 48,
-                height: 48,
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
                 borderRadius: 2,
                 backgroundColor: '#002b36', // Dark Slate
                 border: '1px solid rgba(88, 110, 117, 0.4)',
@@ -1332,7 +1332,7 @@ export default function Home() {
                 position: 'relative',
               }}
             >
-              <TerminalIcon sx={{ fontSize: 28 }} />
+              <TerminalIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
               {windows.projects.isOpen && (
                 <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#2aa198' }} />
               )}
@@ -1345,8 +1345,8 @@ export default function Home() {
               onClick={() => handleDockClick('lofi')}
               className="os-dock-icon"
               sx={{
-                width: 48,
-                height: 48,
+                width: { xs: 42, sm: 48 },
+                height: { xs: 42, sm: 48 },
                 borderRadius: 2,
                 backgroundColor: '#cb4b16', // Orange
                 color: '#eee8d5',
@@ -1358,7 +1358,7 @@ export default function Home() {
                 position: 'relative',
               }}
             >
-              <HeadsetIcon sx={{ fontSize: 26 }} />
+              <HeadsetIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
               {windows.lofi.isOpen && (
                 <Box sx={{ position: 'absolute', bottom: -5, width: 4, height: 4, borderRadius: '50%', backgroundColor: '#eee8d5' }} />
               )}
@@ -1379,26 +1379,26 @@ export default function Home() {
             zIndex: 999999, // Sit on top of everything
             backgroundColor: '#002b36', // Solarized Dark Base03
             color: '#839496', // Solarized Base0
-            p: { xs: 3, sm: 6 },
+            p: { xs: 2, sm: 6 },
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             fontFamily: 'var(--font-mono), monospace',
-            fontSize: '0.85rem',
-            lineHeight: 1.6,
+            fontSize: { xs: '0.72rem', sm: '0.85rem' },
+            lineHeight: { xs: 1.35, sm: 1.6 },
             transition: 'opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1)',
             opacity: introFading ? 0 : 1,
             pointerEvents: introFading ? 'none' : 'auto',
           }}
         >
           {/* Logs panel */}
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, maxWidth: '800px', mx: 'auto', width: '100%', pt: { xs: 2, sm: 6 } }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 0.25, sm: 0.5 }, maxWidth: '800px', mx: 'auto', width: '100%', pt: { xs: 4, sm: 6 } }}>
             {terminalLogs.map((log, index) => (
               <Typography
                 key={index}
                 sx={{
                   fontFamily: 'var(--font-mono), monospace',
-                  fontSize: { xs: '0.75rem', sm: '0.85rem' },
+                  fontSize: { xs: '0.72rem', sm: '0.85rem' },
                   color: log.includes('[ SUCCESS ]')
                     ? '#859900' // Green
                     : log.includes('login')
@@ -1411,7 +1411,7 @@ export default function Home() {
             ))}
 
             {/* Current command typing line */}
-            <Typography sx={{ fontFamily: 'var(--font-mono), monospace', fontSize: { xs: '0.75rem', sm: '0.85rem' }, color: '#839496' }}>
+            <Typography sx={{ fontFamily: 'var(--font-mono), monospace', fontSize: { xs: '0.72rem', sm: '0.85rem' }, color: '#839496' }}>
               guest@noah-dev:~$ {typedCommand}
               {typedCommand.length < "noah-os --boot".length && (
                 <Box
