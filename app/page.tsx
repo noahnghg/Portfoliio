@@ -512,6 +512,7 @@ export default function Home() {
   };
 
   return (
+    <>
     <Box
       className={`${mode === 'dark' ? 'desktop-bg-dark' : 'desktop-bg-light'} os-desktop-reveal ${showIntro ? 'intro-active' : ''} ${revealActive ? 'reveal-active' : ''}`}
       sx={{
@@ -1366,6 +1367,8 @@ export default function Home() {
         </Box>
       </Box>
 
+    </Box>
+
       {/* 5. Developer Boot Terminal Intro Overlay */}
       {showIntro && (
         <Box
@@ -1458,6 +1461,6 @@ export default function Home() {
         </Box>
       )}
 
-    </Box>
+    </>
   );
 }
